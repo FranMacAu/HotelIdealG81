@@ -5,10 +5,16 @@
  */
 package AccesoADatos;
 
+import java.sql.Connection;
+
 /**
  *
  * @author Francisco
  */
 public class Conexion {
+
+    static Connection getConexion() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
