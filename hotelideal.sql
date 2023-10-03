@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `habitaciones` (
-  `idHabitacion` int(11) NOT NULL,
+  `idHabitacion` int(3) NOT NULL,
   `nombre` varchar(20) NOT NULL,
   `piso` int(2) NOT NULL,
   `tipoHabitacion` int(2) NOT NULL,
@@ -75,7 +75,7 @@ CREATE TABLE `reservas` (
 --
 
 CREATE TABLE `tipohabitacion` (
-  `idTipoHab` int(11) NOT NULL,
+  `idTipoHab` int(3) NOT NULL,
   `nombre` varchar(20) NOT NULL,
   `capacidad` int(2) NOT NULL,
   `camas` int(2) NOT NULL,
