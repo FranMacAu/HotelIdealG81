@@ -38,9 +38,9 @@ public class HuespedData {
             ResultSet rs=ps.getGeneratedKeys();
             //System.out.println("Bloque try");
             if (rs.next()){
-                huesped.setHuesped(rs.getInt(1));
+                huesped.setIdHuesped(rs.getInt(1));
                 JOptionPane.showMessageDialog(null, "Huesped guardado");
-                System.out.println("Bloque if");
+                //System.out.println("Bloque if");
             }
             ps.close();
             
@@ -49,7 +49,7 @@ public class HuespedData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla huesped");
             
         }
-        System.out.println("Ejecutado");    
+        //System.out.println("Ejecutado");    
     }
     
 }

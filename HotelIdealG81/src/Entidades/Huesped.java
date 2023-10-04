@@ -2,6 +2,7 @@
 package Entidades;
 
 public class Huesped {
+    private int idHuesped;
     private String nombre;
     private String apellido;
     private int dni;
@@ -22,7 +23,25 @@ public class Huesped {
         this.correo = correo;
         this.telefono = telefono;
     }
-
+    
+    public Huesped(int idHuesped, String nombre, String apellido, int dni, String domicilio, String correo, int telefono) {
+        this.idHuesped = idHuesped;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.domicilio = domicilio;
+        this.correo = correo;
+        this.telefono = telefono;
+    }
+    
+    public void setIdHuesped(int idHuesped){
+        this.idHuesped = idHuesped;
+    }
+    
+    public int getIdHuesped(){
+        return idHuesped;
+    }
+    
     public String getNombre() {
         return nombre;
     }
