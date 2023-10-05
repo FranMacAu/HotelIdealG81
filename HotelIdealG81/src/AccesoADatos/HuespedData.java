@@ -55,7 +55,7 @@ public class HuespedData {
     }
     
     public void modificarHuesped(Huesped huesped){
-        String sql="UPDATE huesped SET nombre= ?, apellido= ?, dni= ?, domicilio= ?, correo= ?, telefono= ?, estado= ?"
+        String sql="UPDATE huesped SET nombre= ?, apellido= ?, dni= ?, domicilio= ?, correo= ?, telefono= ?, estado= ? "
                 + "WHERE idHuesped= ?";
         
         try {
