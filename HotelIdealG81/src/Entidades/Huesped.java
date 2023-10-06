@@ -9,22 +9,24 @@ public class Huesped {
     private String domicilio;
     private String correo;
     private int telefono;
+    private boolean estado;
     
     
     public Huesped () { 
         
     }
 
-    public Huesped(String nombre, String apellido, int dni, String domicilio, String correo, int telefono) {
+    public Huesped(String nombre, String apellido, int dni, String domicilio, String correo, int telefono, boolean estado) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
         this.domicilio = domicilio;
         this.correo = correo;
         this.telefono = telefono;
+        this.estado = estado;
     }
     
-    public Huesped(int idHuesped, String nombre, String apellido, int dni, String domicilio, String correo, int telefono) {
+    public Huesped(int idHuesped, String nombre, String apellido, int dni, String domicilio, String correo, int telefono, boolean estado) {
         this.idHuesped = idHuesped;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -32,6 +34,7 @@ public class Huesped {
         this.domicilio = domicilio;
         this.correo = correo;
         this.telefono = telefono;
+        this.estado = estado;
     }
     
     public void setIdHuesped(int idHuesped){
@@ -94,5 +97,12 @@ public class Huesped {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+    public void setEstado(boolean estado){
+        this.estado=estado;
+    }
+    
+    public boolean isActivo(){
+        return estado;
+    }
     
 }
