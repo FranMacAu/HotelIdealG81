@@ -2,8 +2,10 @@ package Main;
 
 import AccesoADatos.HabitacionData;
 import AccesoADatos.HuespedData;
+import AccesoADatos.ReservaData;
 import Entidades.Habitacion;
 import Entidades.Huesped;
+import Entidades.Reserva;
 
 class HotelIdealG81 {
 
@@ -43,8 +45,18 @@ class HotelIdealG81 {
     
     
     
-       
-       
+                        //Prueba para ReservaData rd   
+                        
+    ReservaData rd= new ReservaData();
+    Reserva r= new Reserva();
+    
+    
+    Reserva R = new Reserva (3, 4,2, 3 , 4 , 80999 , true);
+        
+    rd.GuardarReserva(R);
+    
+    R.setApellido("")
+    
   }
 
     public HotelIdealG81() {
