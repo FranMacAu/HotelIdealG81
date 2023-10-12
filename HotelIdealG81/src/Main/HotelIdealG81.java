@@ -36,7 +36,7 @@ class HotelIdealG81 {
     
     
     
-       
+   // ReservaData rd   
        
   }
 
