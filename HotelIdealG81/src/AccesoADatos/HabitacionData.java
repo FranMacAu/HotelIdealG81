@@ -28,7 +28,7 @@ public class HabitacionData {
             ps.setString(1, hab.getNombre());
             ps.setInt(2, hab.getPiso());
             ps.setInt(3, hab.getIdHabitacion());
-            ps.setBoolean(4, hab.isEstado());
+            ps.setBoolean(4, hab.isActivo());
             
             ps.executeUpdate();
             ResultSet rs=ps.getGeneratedKeys();
@@ -39,13 +39,57 @@ public class HabitacionData {
             ps.close();
             
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla habitaciones");
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla habitaciones "+ex);
         }
-    
-    
-    
-    
     }
+    
+    public void modificarHabitacion(Habitacion hab){
+        String sql="UPDATE habitaciones SET nombre= ?, piso= ?, tipoHabitacion= ?, estado= ?"
+                + "WHERE idAlumno= ?";
+        
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, hab.getNombre());
+            ps.setInt(2, hab.getPiso());
+            ps.setInt(3, hab.getTipoHab());
+            ps.setBoolean(4, hab.isActivo());
+            ps.setInt(5, hab.getIdHabitacion());
+            
+            int exito=ps.executeUpdate();
+            if(exito==1){
+                JOptionPane.showMessageDialog(null, "Habitación modificada");
+            }else if(exito>1){
+                JOptionPane.showMessageDialog(null, "Se modificó más de una habitación. Habitaciones modificadas: "+exito);
+            }
+            
+            
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla habitaciones"); 
+        }
+    }
+    
+    public void eliminarHabitacion(int id){ //sin probar aún
+        String sql="UPDATE habitaciones SET estado=0 WHERE idHabitacion= ?";
+        
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            
+            int exito=ps.executeUpdate();
+            if(exito==1){
+                JOptionPane.showMessageDialog(null, "Habitación eliminada");
+            }
+            
+            
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla habitaciones"); ;
+        }
+    }
+    
+    
+    
     
     
     
