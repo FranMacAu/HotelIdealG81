@@ -22,8 +22,10 @@ class HotelIdealG81 {
 //       D.setApellido("Alto Apellido");
 //       hd.modificarHuesped(D);
        
-       //hd.eliminarHuesped();
-       //System.out.println(D.getIdHuesped());
+//       hd.eliminarHuesped();
+//       System.out.println(D.getIdHuesped());
+       
+       
        
                         //  PRUEBAS PARA HABITACIONDATA
                         
@@ -32,7 +34,12 @@ class HotelIdealG81 {
     
     Habitacion S = new Habitacion("Serena", 2, 2, true);
     
-    hd.guardarHabitacion(S);        // Arroja una excepción, a revisar
+    hd.guardarHabitacion(S);       
+    
+    S.setNombre("nombre");
+    hd.modificarHabitacion(S);
+    
+    hd.eliminarHabitacion(S.getIdHabitacion());
     
     
     

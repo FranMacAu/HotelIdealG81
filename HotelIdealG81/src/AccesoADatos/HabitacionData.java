@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -24,13 +25,13 @@ public class HabitacionData {
     
     PreparedStatement ps;
         try {
-            ps = con.prepareStatement(sql);
+            ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, hab.getNombre());
             ps.setInt(2, hab.getPiso());
-            ps.setInt(3, hab.getIdHabitacion());
+            ps.setInt(3, hab.getTipoHab());
             ps.setBoolean(4, hab.isActivo());
             
-            ps.executeUpdate();
+            int filas=ps.executeUpdate();
             ResultSet rs=ps.getGeneratedKeys();
             if (rs.next()){
                 hab.setIdHabitacion(rs.getInt(1));
@@ -40,12 +41,13 @@ public class HabitacionData {
             
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla habitaciones "+ex);
+            System.out.println(ex);
         }
     }
     
     public void modificarHabitacion(Habitacion hab){
         String sql="UPDATE habitaciones SET nombre= ?, piso= ?, tipoHabitacion= ?, estado= ?"
-                + "WHERE idAlumno= ?";
+                + "WHERE idHabitacion= ?";
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);

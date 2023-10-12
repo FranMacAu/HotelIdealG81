@@ -3,13 +3,15 @@ package Entidades;
 public class TipoHabitacion {
     
     private int codigo;
+    private String nombre;
     private int capacidad;
     private int cantidadCamas;
     private String tipoCama;
     private double precio;
 
-    public TipoHabitacion(int codigo, int capacidad, int cantidadCamas, String tipoCama, double precio) {
+    public TipoHabitacion(int codigo, String nombre, int capacidad, int cantidadCamas, String tipoCama, double precio) {
         this.codigo = codigo;
+        this.nombre = nombre;
         this.capacidad = capacidad;
         this.cantidadCamas = cantidadCamas;
         this.tipoCama = tipoCama;
@@ -17,6 +19,14 @@ public class TipoHabitacion {
     }
 
     public TipoHabitacion() {
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
     
     public void cambiarPrecio(double precio){
