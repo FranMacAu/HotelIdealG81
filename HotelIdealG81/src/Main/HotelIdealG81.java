@@ -31,31 +31,31 @@ class HotelIdealG81 {
        
                         //  PRUEBAS PARA HABITACIONDATA
                         
-    HabitacionData hd = new HabitacionData();
-    Habitacion h = new Habitacion();
-    
-    Habitacion S = new Habitacion("Serena", 2, 2, true);
-    
-    hd.guardarHabitacion(S);       
-    
-    S.setNombre("nombre");
-    hd.modificarHabitacion(S);
-    
-    hd.eliminarHabitacion(S.getIdHabitacion());
+//    HabitacionData hd = new HabitacionData();
+//    Habitacion h = new Habitacion();
+//    
+//    Habitacion S = new Habitacion("Serena", 2, 2, true);
+//    
+//    hd.guardarHabitacion(S);       
+//    
+//    S.setNombre("nombre");
+//    hd.modificarHabitacion(S);
+//    
+//    hd.eliminarHabitacion(S.getIdHabitacion());
     
     
     
                         //Prueba para ReservaData rd   
                         
-    ReservaData rd= new ReservaData();
-    Reserva r= new Reserva();
-    
-    
-    Reserva R = new Reserva (3, 4,2, 3 , 4 , 80999 , true);
-        
-    rd.GuardarReserva(R);
-    
-    R.setApellido("")
+//    ReservaData rd= new ReservaData();
+//    Reserva r= new Reserva();
+//    
+//    
+//    Reserva R = new Reserva (3, 4,2, 3 , 4 , 80999 , true);
+//        
+//    rd.GuardarReserva(R);
+//    
+//    R.setApellido("");
     
   }
 

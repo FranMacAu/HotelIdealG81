@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 
@@ -42,6 +44,26 @@ public class TipoHabData {
         }
     }
     
-    
+    public void cambiarPrecioPorTipo(TipoHabitacion th, double precio){
+        String sql = "UPDATE tipohabitacion SET precio= ? WHERE idTipoHab= ?";
+        
+        PreparedStatement ps;
+        try {
+            ps=con.prepareStatement(sql);
+            ps.setDouble(1, precio);
+            ps.setInt(2, th.getCodigo());
+            
+            ps.executeUpdate();
+            ResultSet rs=ps.getGeneratedKeys();
+            if (rs.next()){
+                JOptionPane.showMessageDialog(null, "Precio modificado");
+            }
+            ps.close();
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "No se pudo actualizar el precio");
+        }
+        
+    }
     
 }

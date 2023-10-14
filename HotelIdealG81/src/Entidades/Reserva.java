@@ -35,8 +35,10 @@ public class Reserva {
        this.pagado = pagado;
        this.estado = estado;
    }
-   
-   
+
+    public Reserva() {
+    }
+      
     public int getIdReserva() {
         return idReserva;
     }
