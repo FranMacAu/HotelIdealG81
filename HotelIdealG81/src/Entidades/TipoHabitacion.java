@@ -18,6 +18,16 @@ public class TipoHabitacion {
         this.precio = precio;
     }
 
+    public TipoHabitacion(String nombre, int capacidad, int cantidadCamas, String tipoCama, double precio) {
+        this.nombre = nombre;
+        this.capacidad = capacidad;
+        this.cantidadCamas = cantidadCamas;
+        this.tipoCama = tipoCama;
+        this.precio = precio;
+    }
+    
+    
+
     public TipoHabitacion() {
     }
 

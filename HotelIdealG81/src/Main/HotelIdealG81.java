@@ -3,9 +3,11 @@ package Main;
 import AccesoADatos.HabitacionData;
 import AccesoADatos.HuespedData;
 import AccesoADatos.ReservaData;
+import AccesoADatos.TipoHabData;
 import Entidades.Habitacion;
 import Entidades.Huesped;
 import Entidades.Reserva;
+import Entidades.TipoHabitacion;
 
 class HotelIdealG81 {
 
@@ -57,9 +59,19 @@ class HotelIdealG81 {
 //    
 //    R.setApellido("");
     
-  }
+  
 
-    public HotelIdealG81() {
-    }
+                    // PRUEBAS TIPOHABDATA
+                    
+    TipoHabData th = new TipoHabData();
+    TipoHabitacion t = new TipoHabitacion();
     
+    TipoHabitacion T = new TipoHabitacion("Doble estandar", 2, 1, "Queen", 85);
+    
+    th.guardarTipoHab(T);
+    th.cambiarPrecioPorTipo(T, 93.85);
+
+
+    
+    }
 }
