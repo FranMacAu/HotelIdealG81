@@ -125,9 +125,19 @@ public class ReservaView extends javax.swing.JFrame {
 
         jbSalir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jbSalir.setText("SALIR");
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirActionPerformed(evt);
+            }
+        });
 
         jbEliminar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jbEliminar.setText("ELIMINAR");
+        jbEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEliminarActionPerformed(evt);
+            }
+        });
 
         jbReservar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jbReservar.setText("HACER RESERVA");
@@ -309,6 +319,27 @@ public class ReservaView extends javax.swing.JFrame {
     private void jrbActivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbActivoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jrbActivoActionPerformed
+
+    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jbSalirActionPerformed
+
+    private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
+        jtApellido.setText("");
+        jtDNI.setText("");
+        jtDomicilio.setText("");
+        jtEmail.setText("");
+        jtNombre.setText("");
+        jtTelefono.setText("");
+        jtfDeposito.setText("");
+        jtfPrecioEst.setText("");
+        jtfPrecioHab.setText("");
+        jrbActivo.setSelected(false);
+        jcbTipoHab.setSelectedIndex(0);
+        jcbCombCamas.setSelectedIndex(0);
+        jdcIngreso.setDate(null);
+        jdcEgreso.setDate(null);
+    }//GEN-LAST:event_jbEliminarActionPerformed
 
     /**
      * @param args the command line arguments
