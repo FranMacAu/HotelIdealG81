@@ -23,91 +23,126 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jlNombre" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jlApellido" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jlDNI" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jlTelefono" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jlEstado" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="jlEmail" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jlDomicilio" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jrbActivo" min="-2" max="-2" attributes="0"/>
-                  <Component id="jtNombre" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jtApellido" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jtDNI" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jtDomicilio" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jtEmail" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jtTelefono" alignment="0" min="-2" pref="296" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="159" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jlPrecioHab" alignment="1" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jdcIngreso" alignment="1" min="-2" pref="145" max="-2" attributes="0"/>
-                          <Component id="jdcEgreso" alignment="1" min="-2" pref="145" max="-2" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jlTipoHab" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="jcbTipoHab" min="-2" pref="142" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                              <Component id="jlIngreso" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Component id="jlCombCamas" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jcbCombCamas" min="-2" pref="142" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="jlEgreso" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="jlPrecioEst" min="-2" max="-2" attributes="0"/>
-                      </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jtfDeposito" min="-2" pref="143" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jtfPrecioHab" min="-2" pref="143" max="-2" attributes="0"/>
-                                      <Component id="jtfPrecioEst" alignment="1" min="-2" pref="143" max="-2" attributes="0"/>
+                                  <Component id="jlTelefono" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jlEstado" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="jlEmail" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jlDomicilio" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jrbActivo" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="241" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jtEmail" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="jtDomicilio" pref="296" max="32767" attributes="0"/>
+                                          <Component id="jtTelefono" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jlNombre" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jlApellido" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jlDNI" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jtNombre" alignment="0" pref="296" max="32767" attributes="0"/>
+                                  <Component id="jtApellido" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jtDNI" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="25" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jlPrecioHab" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jdcIngreso" alignment="1" min="-2" pref="145" max="-2" attributes="0"/>
+                                  <Component id="jdcEgreso" alignment="1" min="-2" pref="145" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="jbBusqueda" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace pref="23" max="32767" attributes="0"/>
+                                      <Component id="jlTipoHab" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="jcbTipoHab" min="-2" pref="142" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                      <Component id="jlIngreso" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="jlCombCamas" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="jcbCombCamas" min="-2" pref="142" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="jlEgreso" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jlPrecioEst" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jtfDeposito" min="-2" pref="143" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jtfPrecioHab" min="-2" pref="143" max="-2" attributes="0"/>
+                                              <Component id="jtfPrecioEst" alignment="1" min="-2" pref="143" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
-                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                      <Component id="jbSalir" min="-2" max="-2" attributes="0"/>
-                      <Component id="jbCalcular" min="-2" pref="143" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="jbEliminar" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="393" max="-2" attributes="0"/>
+                              <Component id="jbCalcular" min="-2" pref="143" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="191" max="-2" attributes="0"/>
+                              <Component id="jbSalir" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jbReservar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="-2" pref="164" max="-2" attributes="0"/>
               <Component id="jlHuesped" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
               <Component id="jlHabitacion" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
           </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
-              <Component id="jbReservar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="153" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jlReservas" min="-2" max="-2" attributes="0"/>
-                  <Component id="jbEliminar" min="-2" max="-2" attributes="0"/>
-              </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="422" max="-2" attributes="0"/>
+              <Component id="jlReservas" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -117,98 +152,105 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jlReservas" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jlHuesped" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jlHabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jlNombre" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jtNombre" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jlApellido" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jtApellido" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jlDNI" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jtDNI" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jlDomicilio" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jtDomicilio" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jlEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jtEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jlHabitacion" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jlTelefono" min="-2" max="-2" attributes="0"/>
-                          <Component id="jtTelefono" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jlEstado" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jrbActivo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="jlPrecioHab" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jlTipoHab" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jcbTipoHab" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jtfPrecioHab" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jbBusqueda" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jlDNI" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jtDNI" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jlNombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jtNombre" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jlCombCamas" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jcbCombCamas" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jlApellido" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jtApellido" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jlDomicilio" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jtDomicilio" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jlEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jtEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jlTelefono" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jtTelefono" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jlEstado" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jrbActivo" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jlIngreso" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jdcIngreso" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="jlPrecioHab" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jlTipoHab" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jcbTipoHab" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jtfPrecioHab" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jlCombCamas" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jcbCombCamas" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="jlIngreso" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jdcIngreso" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jtfDeposito" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jtfDeposito" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jlEgreso" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jdcEgreso" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jlPrecioEst" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jtfPrecioEst" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jbCalcular" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jbReservar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jlEgreso" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jdcEgreso" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jlPrecioEst" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jtfPrecioEst" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jbEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jbSalir" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jbCalcular" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="jlHuesped" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="26" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jbSalir" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jbEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jbReservar" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -283,7 +325,7 @@
     <Component class="javax.swing.JLabel" name="jlHuesped">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="1"/>
+          <Font name="Tahoma" size="24" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="HU&#xc9;SPED"/>
       </Properties>
@@ -291,7 +333,7 @@
     <Component class="javax.swing.JLabel" name="jlHabitacion">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="14" style="1"/>
+          <Font name="Tahoma" size="24" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="HABITACI&#xd3;N."/>
       </Properties>
@@ -383,9 +425,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="SALIR"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbSalirActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jbEliminar">
       <Properties>
@@ -394,9 +433,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="ELIMINAR"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbEliminarActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jbReservar">
       <Properties>
@@ -426,6 +462,14 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtfDeposito">
+    </Component>
+    <Component class="javax.swing.JButton" name="jbBusqueda">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="B&#xda;SQUEDA"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
