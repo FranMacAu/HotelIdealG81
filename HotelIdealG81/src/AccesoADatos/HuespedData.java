@@ -103,4 +103,48 @@ public class HuespedData {
         }
     }
     
+        
+ public Huesped buscarPordni (int dni) {
+    String sql="SELECT idHuesped, nombre, apellido, correo, telefono FROM huesped WHERE dni= ? ";
+    Huesped huesped=null;
+        
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, dni);
+            ResultSet rs=ps.getGeneratedKeys();
+        
+            if(rs.next()) {
+                huesped =new Huesped();
+                huesped.setIdHuesped(rs.getInt("idHuesped"));
+                huesped.setNombre(rs.getString("nombre"));
+                huesped.setApellido(rs.getString("apellido"));
+                huesped.setDni(rs.getInt("dni"));
+                huesped.setDomicilio(rs.getString("domicilio"));
+                huesped.setCorreo(rs.getString("correo"));
+                huesped.setTelefono(rs.getInt("telefono"));                               
+            }else{
+                JOptionPane.showMessageDialog(null, "No existe un huesped asociado al dni ingresado");
+            }
+            ps.close();
+            
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "No se pudo conectar a la tabla");
+        }
+        return huesped;
+    }
+        
+        
 }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
