@@ -91,10 +91,38 @@ public class HabitacionData {
         }
     }
     
+    public void habitacionesLibres(){}
     
     
-    
-    
+    public Habitacion buscarHabitacion(int id){
+        String sql="SELECT idHabitacion, nombre, piso, tipoHabitacion, estado FROM habitaciones WHERE idHabitacion= ? AND estado=1";
+        Habitacion hab=null;
+        
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs=ps.executeQuery();
+            if (rs.next()){
+                
+                hab=new Habitacion();
+                hab.setIdHabitacion(rs.getInt(1));
+                hab.setNombre(rs.getString("nombre"));
+                hab.setPiso(rs.getInt("piso"));
+                hab.setTipoHab(rs.getInt("tipoHabitacion"));
+                hab.setEstado(true);
+                
+            }else{
+                JOptionPane.showMessageDialog(null, "No existe una habitación asociada al id ingresado");
+            }
+            ps.close();
+        
+            
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return hab;
+    }
     
     
     

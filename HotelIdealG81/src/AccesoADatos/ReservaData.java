@@ -1,12 +1,16 @@
 package AccesoADatos;
 
+import Entidades.Habitacion;
 import Entidades.Reserva;
+import Entidades.TipoHabitacion;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import javax.swing.JOptionPane;
 
 public class ReservaData {
@@ -92,6 +96,24 @@ public class ReservaData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla reserva");;
         }
 
+    }
+    
+    public double calcularEstadia(Reserva res){
+        HabitacionData hd= new HabitacionData();
+        TipoHabData thd = new TipoHabData();
+        
+        LocalDate ini=res.getInicio();
+        LocalDate fin=res.getFin();
+        double estadia = ChronoUnit.DAYS.between(ini, fin);
+        
+        Habitacion hab= hd.buscarHabitacion(res.getIdHabitacion());
+        int idTipoHab= hab.getTipoHab();
+        TipoHabitacion thab= thd.buscarTipoHab(idTipoHab);
+        double precioNoche=thab.getPrecio();
+        
+        double total=estadia*precioNoche;
+        
+        return total;
     }
 
 }
