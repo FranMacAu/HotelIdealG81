@@ -5,6 +5,10 @@
  */
 package Vistas;
 
+import AccesoADatos.HuespedData;
+import Entidades.Huesped;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author claux
@@ -146,6 +150,11 @@ public class ReservaView extends javax.swing.JFrame {
 
         jbBusqueda.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jbBusqueda.setText("BÚSQUEDA");
+        jbBusqueda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBusquedaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -172,7 +181,7 @@ public class ReservaView extends javax.swing.JFrame {
                                         .addGap(22, 22, 22)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jtEmail, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jtDomicilio, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
+                                            .addComponent(jtDomicilio)
                                             .addComponent(jtTelefono)))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -340,6 +349,30 @@ public class ReservaView extends javax.swing.JFrame {
     private void jrbActivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbActivoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jrbActivoActionPerformed
+
+    private void jbBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBusquedaActionPerformed
+    String dniStr = jtDNI.getText();
+    
+    if (dniStr.isEmpty()) {
+        JOptionPane.showMessageDialog(jtDNI , "Ingresa un numero de DNi valido0");
+        return; 
+    }
+   try { 
+       int dni = Integer.parseInt(dniStr);
+        HuespedData huespedData =new HuespedData();
+        Huesped huesped = huespedData.buscarPordni(dni);
+        if (huesped != null ) {
+         jtNombre.setText(huesped.getNombre());
+         jtApellido.setText(huesped.getApellido());
+         jtEmail.setText(huesped.getCorreo());
+         jtTelefono.setText(String.valueOf(huesped.getTelefono()));   
+        } else {
+            JOptionPane.showMessageDialog(jtDNI , "No se encontro ningun huesped con ese DNI");
+        }
+   } catch (NumberFormatException ex) { 
+       JOptionPane.showMessageDialog(jtDNI , "Ingresa un DNi valido0");
+   }
+    }//GEN-LAST:event_jbBusquedaActionPerformed
 
     /**
      * @param args the command line arguments

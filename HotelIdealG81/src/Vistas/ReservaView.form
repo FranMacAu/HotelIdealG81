@@ -47,7 +47,7 @@
                                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jtEmail" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="jtDomicilio" pref="296" max="32767" attributes="0"/>
+                                          <Component id="jtDomicilio" max="32767" attributes="0"/>
                                           <Component id="jtTelefono" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -470,6 +470,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="B&#xda;SQUEDA"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbBusquedaActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
