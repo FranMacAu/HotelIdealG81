@@ -354,7 +354,7 @@ public class ReservaView extends javax.swing.JFrame {
     String dniStr = jtDNI.getText();
     
     if (dniStr.isEmpty()) {
-        JOptionPane.showMessageDialog(jtDNI , "Ingresa un numero de DNi valido0");
+        JOptionPane.showMessageDialog(jtDNI , "Ingresa un numero de DNi valido");
         return; 
     }
    try { 

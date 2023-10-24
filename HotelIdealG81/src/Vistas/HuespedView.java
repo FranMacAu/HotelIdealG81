@@ -5,6 +5,11 @@
  */
 package Vistas;
 
+import AccesoADatos.HuespedData;
+import AccesoADatos.ReservaData;
+import Entidades.Huesped;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author claux
@@ -203,9 +208,33 @@ public class HuespedView extends javax.swing.JFrame {
     }//GEN-LAST:event_jtDNIActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+     /*   String dniStr = jtDNI.getText();
+    
+    if (dniStr.isEmpty()) {
+        JOptionPane.showMessageDialog(jtDNI , "Ingresa un numero de DNi valido0");
+        return; 
+    }
+   try { 
+       int dni = Integer.parseInt(dniStr);
+        HuespedData huespedData =new HuespedData();
+        Huesped huesped = huespedData.buscarPordni(dni);
+        if (huesped != null ) {
+         jtNombreApellido.setText(huesped.getNombre());         
+         jtEmail.setText(huesped.getCorreo());
+         jtTelefono.setText(String.valueOf(huesped.getTelefono()));   
+         jtNumHab.setInt(Int.valueOf(Huesped.get))
+         jtLlegada.setLocalDate
+         jtSalida
+         jrbEstado        
+        } else {
+            JOptionPane.showMessageDialog(jtDNI , "No se encontro ningun huesped con ese DNI");
+        }
+   } catch (NumberFormatException ex) { 
+       JOptionPane.showMessageDialog(jtDNI , "Ingresa un DNi valido0");
+   }
     }//GEN-LAST:event_jButton1ActionPerformed
-
+*/
+    }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
