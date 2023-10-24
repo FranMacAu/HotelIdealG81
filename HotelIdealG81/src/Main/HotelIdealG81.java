@@ -66,12 +66,15 @@ class HotelIdealG81 {
     TipoHabData th = new TipoHabData();
     TipoHabitacion t = new TipoHabitacion();
     
-    TipoHabitacion T = new TipoHabitacion("Doble estandar", 2, 1, "Queen", 85);
+    TipoHabitacion T = new TipoHabitacion("Doble Luxury", 2, 1, "Queen", 85);
     
     th.guardarTipoHab(T);
-    th.cambiarPrecioPorTipo(T, 93.85);
+    th.cambiarPrecioPorTipo(T, 118.35);
 
-
+    TipoHabitacion ha=th.buscarTipoHab(2);
+    System.out.println("id: "+ha.getCodigo()+" nombre: "+ha.getNombre()+" capacidad: "+ha.getCapacidad()+
+            " tipo de camas: "+ha.getTipoCama()+" precio: "+ha.getPrecio());
+    
     
     }
 }

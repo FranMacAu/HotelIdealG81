@@ -91,7 +91,6 @@ public class HabitacionData {
         }
     }
     
-    public void habitacionesLibres(){}
     
     
     public Habitacion buscarHabitacion(int id){
@@ -124,6 +123,27 @@ public class HabitacionData {
         return hab;
     }
     
-    
+    public void modificarPrecioHabPorTipo(TipoHabitacion th, double precio){
+        String sql="UPDATE habitaciones SET precio= ?"
+                + "WHERE tipoHabitacion= ?";
+        
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setDouble(1, precio);
+            ps.setInt(2, th.getCodigo());
+            
+            int exito=ps.executeUpdate();
+            if(exito==1){
+                JOptionPane.showMessageDialog(null, "Precio modificado");
+            }else if(exito>1){
+                JOptionPane.showMessageDialog(null, "Se modificó más de un precio.");
+            }
+            
+            
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla habitaciones"); 
+        }
+    }
     
 }

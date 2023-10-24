@@ -1,6 +1,7 @@
 package AccesoADatos;
 
 import Entidades.Habitacion;
+import Entidades.Huesped;
 import Entidades.Reserva;
 import Entidades.TipoHabitacion;
 import java.sql.Connection;
@@ -11,6 +12,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class ReservaData {
@@ -114,6 +117,40 @@ public class ReservaData {
         double total=estadia*precioNoche;
         
         return total;
+    }
+    
+    public Reserva buscarReservaPorHesped(Huesped hue){
+        Reserva res= new Reserva();
+        String sql= "SELECT * FROM  reservas WHERE idHuesped= ?";
+        
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            
+            ps.setInt(1, hue.getIdHuesped());
+            
+            ResultSet rs=ps.executeQuery();
+            if(rs.next()){
+                res.setIdReserva(rs.getInt(1));
+                res.setIdHuesped(rs.getInt(2));
+                res.setIdHabitacion(rs.getInt(3));
+                res.setInicio(rs.getDate(4).toLocalDate());
+                res.setFin(rs.getDate(5).toLocalDate());
+                res.setaPagar(rs.getDouble(6));
+                res.setPagado(rs.getDouble(7));
+                res.setEstado(rs.getBoolean(8));
+                
+            }
+            ps.close();
+            
+            
+            
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al conectar con la tabla reservas");
+        }
+        
+        return res;
+        
     }
 
 }
