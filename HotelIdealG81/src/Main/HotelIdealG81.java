@@ -19,9 +19,9 @@ class HotelIdealG81 {
                         
 //       HuespedData hd= new HuespedData();
 //       Huesped h= new Huesped();
-//       
+       
 //       Huesped D = new Huesped ("Nombre", "Apellido", 98653287, "Calle 123", "originalmariacalores@hotmail.com", 353478962, true);
-//       
+       
 //       hd.GuardarHuesped(D);
 //       
 //       D.setApellido("Alto Apellido");
