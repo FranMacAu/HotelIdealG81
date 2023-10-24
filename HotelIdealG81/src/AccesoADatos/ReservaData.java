@@ -150,8 +150,7 @@
         }
         
         public void finReserva(Huesped hue){
-            /*recibe un Huésped, permite buscar una reserva se marca, de Activa(1) a Inactiva(0). 
-            Se busca la habitación y se marca Libre(0). */
+            
             Reserva baja = buscarReservaPorHesped(hue);
             HabitacionData hab=new HabitacionData();
             Habitacion libre = hab.buscarHabitacion(baja.getIdHabitacion());

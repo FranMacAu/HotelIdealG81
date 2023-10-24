@@ -7,6 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -144,6 +146,35 @@ public class HabitacionData {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla habitaciones"); 
         }
+    }
+    
+    /*Mostrar Habitaciones clasificadas por Tipo de Habitación, y su estado actual (Libre/Ocupada)*/
+    public List<Habitacion> listarHabitaciones(TipoHabitacion th){
+        String sql="SELECT * FROM habitaciones WHERE tipoHabitacion= ? ";
+        ArrayList<Habitacion> habs=new ArrayList<>();
+        
+        
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs=ps.executeQuery();
+            while (rs.next()){
+                
+                Habitacion hab=new Habitacion();
+                hab.setIdHabitacion(rs.getInt(1));
+                hab.setNombre(rs.getString("nombre"));
+                hab.setPiso(rs.getInt("piso"));
+                hab.setTipoHab(rs.getInt("tipoHabitacion"));
+                hab.setEstado(rs.getBoolean("estado"));
+                
+                habs.add(hab);
+            }
+            ps.close();
+            
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "No se pudo conectar a la tabla");
+        }
+        return habs;
     }
     
 }
