@@ -6,7 +6,7 @@ public class Habitacion {
     private String nombre;
     private int piso;
     private int tipoHab;
-    private boolean estado;
+    private boolean estado; //true o 1: habitación ocupada 
 
     public Habitacion(int idHabitacion, String nombre, int piso, int tipoHab, boolean estado) {
         this.idHabitacion = idHabitacion;
