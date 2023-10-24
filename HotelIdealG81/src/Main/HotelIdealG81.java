@@ -8,6 +8,7 @@ import Entidades.Habitacion;
 import Entidades.Huesped;
 import Entidades.Reserva;
 import Entidades.TipoHabitacion;
+import java.time.LocalDate;
 
 class HotelIdealG81 {
 
@@ -53,11 +54,10 @@ class HotelIdealG81 {
 //    Reserva r= new Reserva();
 //    
 //    
-//    Reserva R = new Reserva (3, 4,2, 3 , 4 , 80999 , true);
-//        
+//     Reserva R = new Reserva(3, 4, 2, LocalDate.of(2023, 10, 31), LocalDate.of(2023, 11, 7), 80999.0, 0.0, true);//        
 //    rd.GuardarReserva(R);
 //    
-//    R.setApellido("");
+//    
     
   
 
