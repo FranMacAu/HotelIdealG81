@@ -82,7 +82,6 @@ public class HuespedData {
         }
     }
     
-    
     public void eliminarHuesped(int id){
         String sql="UPDATE huesped SET estado=0 WHERE idHuesped= ?";
         
@@ -101,9 +100,8 @@ public class HuespedData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla huesped"); ;
         }
     }
-    
-        
- public Huesped buscarPordni (int dni) {
+            
+    public Huesped buscarPordni (int dni) {
     String sql="SELECT idHuesped, nombre, apellido, correo, telefono FROM huesped WHERE dni= ? ";
     Huesped huesped=null;
         

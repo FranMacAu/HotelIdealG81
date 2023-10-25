@@ -7,6 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -95,6 +97,39 @@ public class TipoHabData {
         }
         
         return thab;
+    }
+    
+    public List<TipoHabitacion> listarTipoHabitaciones(){
+        String sql="SELECT * FROM tipohabitaciones ";
+        ArrayList<TipoHabitacion> thabs=new ArrayList<>();
+        
+        
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs=ps.executeQuery();
+            while (rs.next()){
+                
+                TipoHabitacion hab=new TipoHabitacion();
+                hab.setCodigo(rs.getInt(1));
+                hab.setNombre(rs.getString("nombre"));
+                hab.setCapacidad(rs.getInt("capacidad"));
+                hab.setCantidadCamas(rs.getInt("tipoHabitacion"));
+                hab.setTipoCama(rs.getString("tipoCamas"));
+                hab.setPrecio(rs.getDouble("precio"));
+                
+                thabs.add(hab);
+            }
+            ps.close();
+            
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "No se pudo conectar a la tabla");
+        }
+        return thabs;
+    
+        
+    
+    
     }
     
 }
