@@ -3,7 +3,7 @@ package Vistas;
 import AccesoADatos.HuespedData;
 import Entidades.Huesped;
 import javax.swing.JOptionPane;
-
+import AccesoADatos.ReservaData;
 
 public class ReservaView extends javax.swing.JFrame {
 
@@ -125,6 +125,11 @@ public class ReservaView extends javax.swing.JFrame {
 
         jbEliminar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jbEliminar.setText("ELIMINAR");
+        jbEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEliminarActionPerformed(evt);
+            }
+        });
 
         jbReservar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jbReservar.setText("HACER RESERVA");
@@ -371,6 +376,36 @@ public class ReservaView extends javax.swing.JFrame {
        JOptionPane.showMessageDialog(jtDNI , "Ingresa un DNi valido0");
    }
     }//GEN-LAST:event_jbBusquedaActionPerformed
+
+    private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
+          String dniStr = jtDNI.getText();
+          
+          if (dniStr.isEmpty()) {
+        JOptionPane.showMessageDialog(jlDNI, "Ingresa un numero de DNI valido");
+        return; 
+    }
+         try {
+              int dni = Integer.parseInt(dniStr);
+              HuespedData huespedData = new HuespedData();
+              Huesped huesped = huespedData.buscarPordni(dni);
+              if (huesped != null) {                
+              int IdReserva = huesped.getIdReserva();
+              if (IdReserva > 0) {
+                
+                eliminarReserva(int id ); // Llama a la función eliminarReserva con el ID de reserva
+                JOptionPane.showMessageDialog(jtDNI, "Reserva eliminada con éxito");
+            } else {
+                JOptionPane.showMessageDialog(jtDNI, "No se encontró una reserva para este DNI");
+            }
+        } else {
+            JOptionPane.showMessageDialog(jtDNI, "No se encontró ninguna persona con este DNI");
+        }
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(jtDNI, "Ingresa un número de DNI válido");
+    }
+    
+
+    }//GEN-LAST:event_jbEliminarActionPerformed
 
     /**
      * @param args the command line arguments

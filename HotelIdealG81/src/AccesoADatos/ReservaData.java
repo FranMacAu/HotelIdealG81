@@ -92,7 +92,7 @@
                 }
 
             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, "Error al acceder a la tabla reserva");;
+                JOptionPane.showMessageDialog(null, "Error al acceder a la tabla de reserva");;
             }
 
         }
