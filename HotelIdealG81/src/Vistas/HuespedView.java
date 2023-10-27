@@ -45,8 +45,8 @@ public class HuespedView extends javax.swing.JFrame {
         jtEmail = new javax.swing.JTextField();
         jtDireccion = new javax.swing.JTextField();
         jrbEstado = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jbBuscar = new javax.swing.JButton();
+        jbSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,27 +69,43 @@ public class HuespedView extends javax.swing.JFrame {
 
         jLabel10.setText("Estado:");
 
+        jtDNI.setNextFocusableComponent(jtNombreApellido);
         jtDNI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtDNIActionPerformed(evt);
             }
         });
 
-        jrbEstado.setText("Activo");
+        jtNombreApellido.setNextFocusableComponent(jtNumHab);
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setText("BÚSQUEDA");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jtNumHab.setNextFocusableComponent(jtLlegadaSalida);
+
+        jtLlegadaSalida.setNextFocusableComponent(jtTelefono);
+
+        jtTelefono.setNextFocusableComponent(jtEmail);
+
+        jtEmail.setNextFocusableComponent(jtDireccion);
+
+        jtDireccion.setNextFocusableComponent(jrbEstado);
+
+        jrbEstado.setText("Activo");
+        jrbEstado.setNextFocusableComponent(jbBuscar);
+
+        jbBuscar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jbBuscar.setText("BÚSQUEDA");
+        jbBuscar.setNextFocusableComponent(jbSalir);
+        jbBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jbBuscarActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton2.setText("SALIR");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jbSalir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jbSalir.setText("SALIR");
+        jbSalir.setNextFocusableComponent(jtDNI);
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jbSalirActionPerformed(evt);
             }
         });
 
@@ -143,9 +159,9 @@ public class HuespedView extends javax.swing.JFrame {
                                         .addComponent(jtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addGap(77, 77, 77)
-                                    .addComponent(jButton1)
+                                    .addComponent(jbBuscar)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton2)
+                                    .addComponent(jbSalir)
                                     .addGap(69, 69, 69)))
                             .addComponent(jLabel1))))
                 .addContainerGap(30, Short.MAX_VALUE))
@@ -189,8 +205,8 @@ public class HuespedView extends javax.swing.JFrame {
                     .addComponent(jrbEstado))
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jbBuscar)
+                    .addComponent(jbSalir))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(jLabel2))
         );
@@ -202,7 +218,7 @@ public class HuespedView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtDNIActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
      /*   String dniStr = jtDNI.getText();
     
     if (dniStr.isEmpty()) {
@@ -227,13 +243,13 @@ public class HuespedView extends javax.swing.JFrame {
    } catch (NumberFormatException ex) { 
        JOptionPane.showMessageDialog(jtDNI , "Ingresa un DNi valido0");
    }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jbBuscarActionPerformed
 */
     }
     
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
         this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jbSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -271,8 +287,6 @@ public class HuespedView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -282,6 +296,8 @@ public class HuespedView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JButton jbBuscar;
+    private javax.swing.JButton jbSalir;
     private javax.swing.JLabel jlHuesped;
     private javax.swing.JRadioButton jrbEstado;
     private javax.swing.JTextField jtDNI;

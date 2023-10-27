@@ -88,13 +88,25 @@ public class ReservaView extends javax.swing.JFrame {
 
         jlEstado.setText("Estado:");
 
+        jtNombre.setNextFocusableComponent(jtApellido);
+
+        jtApellido.setNextFocusableComponent(jtDomicilio);
+
+        jtDNI.setNextFocusableComponent(jbBusqueda);
         jtDNI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtDNIActionPerformed(evt);
             }
         });
 
+        jtDomicilio.setNextFocusableComponent(jtEmail);
+
+        jtEmail.setNextFocusableComponent(jtTelefono);
+
+        jtTelefono.setNextFocusableComponent(jrbActivo);
+
         jrbActivo.setText("Activo");
+        jrbActivo.setNextFocusableComponent(jcbTipoHab);
         jrbActivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jrbActivoActionPerformed(evt);
@@ -112,6 +124,7 @@ public class ReservaView extends javax.swing.JFrame {
         jlCombCamas.setText("Tipo de camas:");
 
         jcbTipoHab.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcbTipoHab.setNextFocusableComponent(jcbNumHab);
         jcbTipoHab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbTipoHabActionPerformed(evt);
@@ -119,6 +132,7 @@ public class ReservaView extends javax.swing.JFrame {
         });
 
         jcbNumHab.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcbNumHab.setNextFocusableComponent(jdcIngreso);
         jcbNumHab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbNumHabActionPerformed(evt);
@@ -128,6 +142,10 @@ public class ReservaView extends javax.swing.JFrame {
         jlIngreso.setText("Fecha de ingreso:");
 
         jlEgreso.setText("Fecha de egreso:");
+
+        jdcIngreso.setNextFocusableComponent(jdcEgreso);
+
+        jdcEgreso.setNextFocusableComponent(jtfDeposito);
 
         jlPrecioHab.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jlPrecioHab.setText("PRECIO POR HABITACIÓN");
@@ -141,9 +159,11 @@ public class ReservaView extends javax.swing.JFrame {
 
         jbSalir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jbSalir.setText("SALIR");
+        jbSalir.setNextFocusableComponent(jbEliminar);
 
         jbEliminar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jbEliminar.setText("ELIMINAR");
+        jbEliminar.setNextFocusableComponent(jtDNI);
         jbEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbEliminarActionPerformed(evt);
@@ -152,6 +172,7 @@ public class ReservaView extends javax.swing.JFrame {
 
         jbReservar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jbReservar.setText("HACER RESERVA");
+        jbReservar.setNextFocusableComponent(jbSalir);
         jbReservar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbReservarActionPerformed(evt);
@@ -160,12 +181,16 @@ public class ReservaView extends javax.swing.JFrame {
 
         jbCalcular.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jbCalcular.setText("CALCULAR");
+        jbCalcular.setNextFocusableComponent(jbReservar);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("DEPÓSITO");
 
+        jtfDeposito.setNextFocusableComponent(jbCalcular);
+
         jbBusqueda.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jbBusqueda.setText("BÚSQUEDA");
+        jbBusqueda.setNextFocusableComponent(jtNombre);
         jbBusqueda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbBusquedaActionPerformed(evt);
