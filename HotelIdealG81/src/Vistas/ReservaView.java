@@ -1,16 +1,23 @@
 package Vistas;
 
+import AccesoADatos.HabitacionData;
 import AccesoADatos.HuespedData;
 import Entidades.Huesped;
 import javax.swing.JOptionPane;
 import AccesoADatos.ReservaData;
+import AccesoADatos.TipoHabData;
+import Entidades.Habitacion;
 import Entidades.TipoHabitacion;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.List;
 
 public class ReservaView extends javax.swing.JFrame {
 
     
     public ReservaView() {
         initComponents();
+        armarComboBox();
     }
 
     /**
@@ -426,6 +433,7 @@ public class ReservaView extends javax.swing.JFrame {
         TipoHabitacion th = (TipoHabitacion) jcbTipoHab.getSelectedItem();
         jtfPrecioHab.setText(th.getPrecio()+"");
         jcbTipoCamas.setText(th.getTipoCama());
+        armarComboDisponibles();
     }
     /**
      * @param args the command line arguments
@@ -502,4 +510,26 @@ public class ReservaView extends javax.swing.JFrame {
     private javax.swing.JTextField jtfPrecioEst;
     private javax.swing.JTextField jtfPrecioHab;
     // End of variables declaration//GEN-END:variables
+
+
+    private void armarComboBox(){
+            TipoHabData th=new TipoHabData();
+            List<TipoHabitacion> lista = th.listarTipoHabitaciones();
+            int i;
+            for(i=0; i<lista.size(); i++){
+                jcbTipoHab.addItem(lista.get(i).toString());
+            }
+        }
+    
+    private void armarComboDisponibles() {
+    TipoHabData th = new TipoHabData();
+    TipoHabitacion tipoHabitacionSeleccionado = th.listarTipoHabitaciones().get(jcbTipoHab.getSelectedIndex());
+    HabitacionData hd = new HabitacionData();
+    List<Habitacion> lista = hd.buscarHabitacionesDisponibles(jdcIngreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate(), jdcEgreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate(), tipoHabitacionSeleccionado.getCodigo());
+    int i;
+    for (i = 0; i < lista.size(); i++) {
+        jcbTipoHab.addItem(lista.get(i).toString());
+    } 
 }
+    
+    }

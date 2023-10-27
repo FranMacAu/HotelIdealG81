@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -177,4 +178,55 @@ public class HabitacionData {
         return habs;
     }
     
+    public List<Habitacion> buscarHabitacionesDisponibles(LocalDate ini, LocalDate fin, int codigoTH){
+        String sql = "SELECT idHabitacion, nombre, piso, tipoHabitacion " +
+                "FROM habitaciones " +
+                "WHERE tipoHabitacion = ? " +
+                "AND estado = 1 " +
+                "AND idHabitacion NOT IN (" +
+                "    SELECT idHabitacion " +
+                "    FROM reservas " +
+                "    WHERE " +
+                "        (inicio <= ? AND fin >= ?) " +
+                "        OR (inicio <= ? AND fin >= ?) " +
+                "        OR (inicio >= ? AND fin <= ?)" +
+                ") ";
+        List<Habitacion> habitacionesDisponibles = new ArrayList<>();
+
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, codigoTH);
+            ps.setObject(2, ini);
+            ps.setObject(3, fin);
+            ps.setObject(4, ini);
+            ps.setObject(5, fin);
+            ps.setObject(6, ini);
+            ps.setObject(7, fin);
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Habitacion hab = new Habitacion();
+                hab.setIdHabitacion(rs.getInt("idHabitacion"));
+                hab.setNombre(rs.getString("nombre"));
+                hab.setPiso(rs.getInt("piso"));
+                hab.setTipoHab(rs.getInt("tipoHabitacion"));
+                hab.setEstado(true);
+
+                habitacionesDisponibles.add(hab);
+            }
+            ps.close();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la base de datos");
+        }
+        return habitacionesDisponibles;
+    }
+
+
+
+
+
+
+
 }
+
