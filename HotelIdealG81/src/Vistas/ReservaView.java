@@ -3,6 +3,7 @@ package Vistas;
 import AccesoADatos.HabitacionData;
 import AccesoADatos.HuespedData;
 import Entidades.Huesped;
+import Entidades.Reserva; 
 import javax.swing.JOptionPane;
 import AccesoADatos.ReservaData;
 import AccesoADatos.TipoHabData;
@@ -409,8 +410,7 @@ public class ReservaView extends javax.swing.JFrame {
               if (huesped != null) {                
               int IdReserva = huesped.getIdReserva();
               if (IdReserva > 0) {
-                
-                eliminarReserva(int id ); // Llama a la función eliminarReserva con el ID de reserva
+              eliminarReserva(IdReserva); 
                 JOptionPane.showMessageDialog(jtDNI, "Reserva eliminada con éxito");
             } else {
                 JOptionPane.showMessageDialog(jtDNI, "No se encontró una reserva para este DNI");
@@ -421,7 +421,7 @@ public class ReservaView extends javax.swing.JFrame {
     } catch (NumberFormatException e) {
         JOptionPane.showMessageDialog(jtDNI, "Ingresa un número de DNI válido");
     }
-    
+
 
     }//GEN-LAST:event_jbEliminarActionPerformed
 
@@ -532,4 +532,11 @@ public class ReservaView extends javax.swing.JFrame {
     } 
 }
     
+    
+    private void eliminarReserva(int idReserva) {
+    ReservaData reservaData = new ReservaData();
+    reservaData.eliminarReserva(idReserva);
+    
     }
+    
+ }

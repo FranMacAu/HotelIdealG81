@@ -103,5 +103,13 @@ public class Huesped {
     public boolean isActivo(){
         return estado;
     }
+
+    public int getidReserva() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public int getIdReserva() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
