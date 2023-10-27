@@ -21,9 +21,6 @@ public class HotelIdealGeneral extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jbReservas = new javax.swing.JButton();
-        jbHabitaciones = new javax.swing.JButton();
-        jbHuesped = new javax.swing.JButton();
         ImageIcon icono = new ImageIcon(getClass().getResource("/Recursos/HotelIdeal.jpg"));
         Image miImagen=icono.getImage();
         jDesktopPane1 = new javax.swing.JDesktopPane(){
@@ -34,15 +31,18 @@ public class HotelIdealGeneral extends javax.swing.JFrame {
             }
 
         };
-        jbSalir = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenuReservas = new javax.swing.JMenu();
+        jMIReservas = new javax.swing.JMenuItem();
+        jMenuHabitaciones = new javax.swing.JMenu();
+        jMIHab = new javax.swing.JMenuItem();
+        jMITipoHab = new javax.swing.JMenuItem();
+        jMenuHuespedes = new javax.swing.JMenu();
+        jMIHuesped = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        jMISalir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jbReservas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/libro-alt.png"))); // NOI18N
-
-        jbHabitaciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/cama.png"))); // NOI18N
-
-        jbHuesped.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/usuarios-alt.png"))); // NOI18N
 
         jDesktopPane1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -50,41 +50,65 @@ public class HotelIdealGeneral extends javax.swing.JFrame {
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 409, Short.MAX_VALUE)
+            .addGap(0, 282, Short.MAX_VALUE)
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 250, Short.MAX_VALUE)
+            .addGap(0, 195, Short.MAX_VALUE)
         );
 
-        jbSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/rectangulo-xmark.png"))); // NOI18N
+        jMenuReservas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/libro-alt.png"))); // NOI18N
+        jMenuReservas.setNextFocusableComponent(jMIHab);
+
+        jMIReservas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/reservar-usuario.png"))); // NOI18N
+        jMIReservas.setText("Reservas");
+        jMenuReservas.add(jMIReservas);
+
+        jMenuBar1.add(jMenuReservas);
+
+        jMenuHabitaciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/cama.png"))); // NOI18N
+
+        jMIHab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/cama-alternativa.png"))); // NOI18N
+        jMIHab.setText("Habitaciones");
+        jMIHab.setNextFocusableComponent(jMITipoHab);
+        jMenuHabitaciones.add(jMIHab);
+
+        jMITipoHab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/litera.png"))); // NOI18N
+        jMITipoHab.setText("Tipo de Habitaciones");
+        jMITipoHab.setNextFocusableComponent(jMIHuesped);
+        jMenuHabitaciones.add(jMITipoHab);
+
+        jMenuBar1.add(jMenuHabitaciones);
+
+        jMenuHuespedes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/usuarios-alt.png"))); // NOI18N
+        jMenuHuespedes.setNextFocusableComponent(jMISalir);
+
+        jMIHuesped.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/personas.png"))); // NOI18N
+        jMIHuesped.setText("Huéspedes");
+        jMenuHuespedes.add(jMIHuesped);
+
+        jMenuBar1.add(jMenuHuespedes);
+
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/rectangulo-xmark.png"))); // NOI18N
+        jMenu4.setNextFocusableComponent(jMIReservas);
+
+        jMISalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/marca-x-rectangular.png"))); // NOI18N
+        jMISalir.setText("Salir");
+        jMenu4.add(jMISalir);
+
+        jMenuBar1.add(jMenu4);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(3, 3, 3)
-                .addComponent(jbReservas)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jbHabitaciones)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jbHuesped)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jbSalir))
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jbReservas)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jbHabitaciones)
-                        .addComponent(jbHuesped))
-                    .addComponent(jbSalir))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jDesktopPane1))
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
@@ -127,9 +151,15 @@ public class HotelIdealGeneral extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JButton jbHabitaciones;
-    private javax.swing.JButton jbHuesped;
-    private javax.swing.JButton jbReservas;
-    private javax.swing.JButton jbSalir;
+    private javax.swing.JMenuItem jMIHab;
+    private javax.swing.JMenuItem jMIHuesped;
+    private javax.swing.JMenuItem jMIReservas;
+    private javax.swing.JMenuItem jMISalir;
+    private javax.swing.JMenuItem jMITipoHab;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jMenuHabitaciones;
+    private javax.swing.JMenu jMenuHuespedes;
+    private javax.swing.JMenu jMenuReservas;
     // End of variables declaration//GEN-END:variables
 }
