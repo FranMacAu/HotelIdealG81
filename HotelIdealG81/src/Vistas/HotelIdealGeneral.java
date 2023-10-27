@@ -4,10 +4,8 @@ import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
-
 public class HotelIdealGeneral extends javax.swing.JFrame {
 
-    
     public HotelIdealGeneral() {
         initComponents();
     }
@@ -50,7 +48,7 @@ public class HotelIdealGeneral extends javax.swing.JFrame {
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 282, Short.MAX_VALUE)
+            .addGap(0, 292, Short.MAX_VALUE)
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -62,20 +60,40 @@ public class HotelIdealGeneral extends javax.swing.JFrame {
 
         jMIReservas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/reservar-usuario.png"))); // NOI18N
         jMIReservas.setText("Reservas");
+        jMIReservas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMIReservasActionPerformed(evt);
+            }
+        });
         jMenuReservas.add(jMIReservas);
 
         jMenuBar1.add(jMenuReservas);
 
         jMenuHabitaciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/cama.png"))); // NOI18N
+        jMenuHabitaciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuHabitacionesActionPerformed(evt);
+            }
+        });
 
         jMIHab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/cama-alternativa.png"))); // NOI18N
         jMIHab.setText("Habitaciones");
         jMIHab.setNextFocusableComponent(jMITipoHab);
+        jMIHab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMIHabActionPerformed(evt);
+            }
+        });
         jMenuHabitaciones.add(jMIHab);
 
         jMITipoHab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/litera.png"))); // NOI18N
         jMITipoHab.setText("Tipo de Habitaciones");
         jMITipoHab.setNextFocusableComponent(jMIHuesped);
+        jMITipoHab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMITipoHabActionPerformed(evt);
+            }
+        });
         jMenuHabitaciones.add(jMITipoHab);
 
         jMenuBar1.add(jMenuHabitaciones);
@@ -85,6 +103,11 @@ public class HotelIdealGeneral extends javax.swing.JFrame {
 
         jMIHuesped.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/personas.png"))); // NOI18N
         jMIHuesped.setText("Huéspedes");
+        jMIHuesped.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMIHuespedActionPerformed(evt);
+            }
+        });
         jMenuHuespedes.add(jMIHuesped);
 
         jMenuBar1.add(jMenuHuespedes);
@@ -104,7 +127,7 @@ public class HotelIdealGeneral extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jDesktopPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,6 +136,46 @@ public class HotelIdealGeneral extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMIReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIReservasActionPerformed
+        // TODO add your handling code here:
+        jDesktopPane1.removeAll();
+        jDesktopPane1.repaint();
+        ReservaView reserva = new ReservaView();
+        reserva.setVisible(true);
+        jDesktopPane1.add(reserva);
+    }//GEN-LAST:event_jMIReservasActionPerformed
+
+    private void jMenuHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuHabitacionesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuHabitacionesActionPerformed
+
+    private void jMITipoHabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMITipoHabActionPerformed
+        // TODO add your handling code here:
+        jDesktopPane1.removeAll();
+        jDesktopPane1.repaint();
+        TipoHabitación TipHab = new TipoHabitación();
+        TipHab.setVisible(true);
+        jDesktopPane1.add(TipHab);
+    }//GEN-LAST:event_jMITipoHabActionPerformed
+
+    private void jMIHuespedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIHuespedActionPerformed
+        // TODO add your handling code here:
+        jDesktopPane1.removeAll();
+        jDesktopPane1.repaint();
+        HuespedView Huesped = new HuespedView();
+        Huesped.setVisible(true);
+        jDesktopPane1.add(Huesped);
+    }//GEN-LAST:event_jMIHuespedActionPerformed
+
+    private void jMIHabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIHabActionPerformed
+        // TODO add your handling code here:
+        jDesktopPane1.removeAll();
+        jDesktopPane1.repaint();
+        HabitacionesView Habitacion = new HabitacionesView();
+        Habitacion.setVisible(true);
+        jDesktopPane1.add(Habitacion);
+    }//GEN-LAST:event_jMIHabActionPerformed
 
     /**
      * @param args the command line arguments
