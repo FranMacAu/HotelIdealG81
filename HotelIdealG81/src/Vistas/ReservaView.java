@@ -538,5 +538,5 @@ public class ReservaView extends javax.swing.JFrame {
     reservaData.eliminarReserva(idReserva);
     
     }
-    
+    /* tratamos de arreglar*/
  }
