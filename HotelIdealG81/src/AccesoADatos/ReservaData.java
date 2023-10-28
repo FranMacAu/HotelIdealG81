@@ -80,7 +80,7 @@
         }
 
         public void eliminarReserva(int id) {
-            String sql = "UPDATE reservaciones SET estado=0 WHERE idReserva= ?";
+            String sql = "UPDATE reservas SET estado=0 WHERE idReserva= ?";
 
             try {
                 PreparedStatement ps = con.prepareStatement(sql);
@@ -92,7 +92,7 @@
                 }
 
             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, "Error al acceder a la tabla de reserva");;
+                JOptionPane.showMessageDialog(null, "Error al acceder a la tabla de reserva");
             }
 
         }

@@ -100,7 +100,7 @@ public class TipoHabData {
     }
     
     public List<TipoHabitacion> listarTipoHabitaciones(){
-        String sql="SELECT * FROM tipohabitaciones ";
+        String sql="SELECT * FROM tipohabitacion ";
         ArrayList<TipoHabitacion> thabs=new ArrayList<>();
         
         
@@ -113,7 +113,7 @@ public class TipoHabData {
                 hab.setCodigo(rs.getInt(1));
                 hab.setNombre(rs.getString("nombre"));
                 hab.setCapacidad(rs.getInt("capacidad"));
-                hab.setCantidadCamas(rs.getInt("tipoHabitacion"));
+                hab.setCantidadCamas(rs.getInt("camas"));
                 hab.setTipoCama(rs.getString("tipoCamas"));
                 hab.setPrecio(rs.getDouble("precio"));
                 
@@ -123,7 +123,8 @@ public class TipoHabData {
             
             
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "No se pudo conectar a la tabla");
+            JOptionPane.showMessageDialog(null, "No se pudo conectar a la tabla"+ex);
+            System.out.println(ex);
         }
         return thabs;
     
