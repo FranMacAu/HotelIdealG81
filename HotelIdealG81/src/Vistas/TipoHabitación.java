@@ -5,10 +5,17 @@
  */
 package Vistas;
 
-/**
- *
- * @author claux
- */
+import AccesoADatos.HuespedData;
+import Entidades.Huesped;
+import javax.swing.JOptionPane;
+import AccesoADatos.TipoHabData;
+import Entidades.Habitacion;
+import Entidades.TipoHabitacion; 
+import AccesoADatos.HabitacionData;
+
+        
+        
+        
 public class TipoHabitación extends javax.swing.JFrame {
 
     /**
@@ -41,7 +48,7 @@ public class TipoHabitación extends javax.swing.JFrame {
         jcbCapacidad = new javax.swing.JComboBox<>();
         jcbCamas = new javax.swing.JComboBox<>();
         jtTiposCamas = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        JBuscar = new javax.swing.JButton();
         jLimpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -84,6 +91,11 @@ public class TipoHabitación extends javax.swing.JFrame {
         });
 
         jtNombreHab.setNextFocusableComponent(jcbCapacidad);
+        jtNombreHab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtNombreHabActionPerformed(evt);
+            }
+        });
 
         jtPrecio.setNextFocusableComponent(jbCrear);
 
@@ -93,12 +105,17 @@ public class TipoHabitación extends javax.swing.JFrame {
         jcbCamas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jtTiposCamas.setNextFocusableComponent(jtPrecio);
-
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton1.setText("BUSCAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jtTiposCamas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jtTiposCamasActionPerformed(evt);
+            }
+        });
+
+        JBuscar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        JBuscar.setText("BUSCAR");
+        JBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBuscarActionPerformed(evt);
             }
         });
 
@@ -149,7 +166,7 @@ public class TipoHabitación extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(JBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jbEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -163,7 +180,7 @@ public class TipoHabitación extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jtNombreHab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(JBuscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -198,9 +215,30 @@ public class TipoHabitación extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jbEliminarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void JBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBuscarActionPerformed
+    String nombreStr = jtNombreHab.getText();
+    
+    if (nombreStr.isEmpty()) {
+        JOptionPane.showMessageDialog(jtNombreHab , "Ingresa un numero de DNi valido");
+          
+        TipoHabData thd  =new TipoHabData();
+        
+        TipoHabitacion th = thd.buscarPorNombre(nombreStr);
+        
+         try { 
+       int nombre = Integer.parseInt(nombreStr);
+        if (th != null ) {
+        jtNombreHab.setText(th.getNombre());
+        jtTiposCamas.setText(th.getTipoCama());
+        jtPrecio.setText(String.valueOf(th.getPrecio()));
+        }  else {
+            JOptionPane.showMessageDialog(jtNombreHab , "No se encontro ninguna habitacion con ese numero");
+        }
+   } catch (NumberFormatException ex) { 
+       JOptionPane.showMessageDialog(jtNombreHab , "Ingresa un Numero valido");
+     }
+   }
+        }//GEN-LAST:event_JBuscarActionPerformed
 
     private void jLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jLimpiarActionPerformed
     jtNombreHab.setText("");
@@ -212,8 +250,16 @@ public class TipoHabitación extends javax.swing.JFrame {
     }//GEN-LAST:event_jLimpiarActionPerformed
 
     private void jbCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCrearActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jbCrearActionPerformed
+
+    private void jtNombreHabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtNombreHabActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtNombreHabActionPerformed
+
+    private void jtTiposCamasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtTiposCamasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtTiposCamasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -247,11 +293,11 @@ public class TipoHabitación extends javax.swing.JFrame {
             public void run() {
                 new TipoHabitación().setVisible(true);
             }
-        });
-    }
+});
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton JBuscar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -269,3 +315,5 @@ public class TipoHabitación extends javax.swing.JFrame {
     private javax.swing.JTextField jtTiposCamas;
     // End of variables declaration//GEN-END:variables
 }
+
+

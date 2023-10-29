@@ -129,8 +129,43 @@ public class TipoHabData {
         return thabs;
     
         
-    
-    
     }
+    
+    
+        public TipoHabitacion buscarPorNombre(String nombre){
+            String sql="SELECT idTipoHab, nombre, capacidad, camas, tipoCamas, precio FROM tipohabitacion WHERE nombre= ?";
+            TipoHabitacion thab=null;
+
+                PreparedStatement ps;
+            try {
+                ps = con.prepareStatement(sql);
+                ps.setString(1, nombre);
+                ResultSet rs=ps.executeQuery();
+                if (rs.next()){
+
+                    thab=new TipoHabitacion();
+                    thab.setCodigo(rs.getInt(1));
+                    thab.setNombre(rs.getString("nombre"));
+                    thab.setCapacidad(rs.getInt("capacidad"));
+                    thab.setCantidadCamas(rs.getInt("camas"));
+                    thab.setTipoCama(rs.getString("tipoCamas"));
+                    thab.setPrecio(rs.getDouble("precio"));
+
+                }else{
+                    JOptionPane.showMessageDialog(null, "No existe una tipo de habitación asociada al código ingresado");
+                }
+                ps.close();
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "Error al acceder a la tabla TipoHab");
+            }
+
+            return thab;
+        }
+
+
+
+
+
+    
     
 }
