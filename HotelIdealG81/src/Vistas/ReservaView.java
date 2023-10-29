@@ -9,6 +9,7 @@ import AccesoADatos.ReservaData;
 import AccesoADatos.TipoHabData;
 import Entidades.Habitacion;
 import Entidades.TipoHabitacion;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.List;
@@ -388,11 +389,47 @@ public class ReservaView extends javax.swing.JFrame {
     private void jtDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtDNIActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtDNIActionPerformed
-
+/*
+    
+    
+    
     private void jbReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbReservarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jbReservarActionPerformed
+    Huesped huesped = obtenerHuesped(); // Debes implementar este método para obtener el objeto Huesped
+    Habitacion habitacion = obtenerHabitacion(); // Debes implementar este método para obtener el objeto Habitación
 
+    // Verificar que los objetos Huesped y Habitación no sean nulos
+    if (huesped == null || habitacion == null) {
+        JOptionPane.showMessageDialog(null, "Selecciona un huésped y una habitación válidos.");
+        return;
+    }
+
+    // Crear una instancia de Reserva con los objetos Huesped y Habitación
+    Reserva reserva = new Reserva();
+    reserva.setIdHuesped(huesped.getId()); // Suponiendo que el objeto Huesped tiene un método getId()
+    reserva.setIdHabitacion(habitacion.getId()); // Suponiendo que el objeto Habitación tiene un método getId()
+
+    // Configurar otros datos de la reserva según tu necesidad (fechas, precios, etc.)
+
+    // Llamar al método para guardar la reserva
+    GuardarReserva(reserva);
+}
+
+    private Huesped obtenerHuesped() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private Habitacion obtenerHabitacion() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void GuardarReserva(Reserva reserva) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    }//GEN-LAST:event_jbReservarActionPerformed
+ 
+    */
+    
+    
     private void jrbActivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbActivoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jrbActivoActionPerformed

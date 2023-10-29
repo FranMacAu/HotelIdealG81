@@ -64,6 +64,11 @@ public class TipoHabitación extends javax.swing.JFrame {
         jbCrear.setMaximumSize(new java.awt.Dimension(91, 23));
         jbCrear.setMinimumSize(new java.awt.Dimension(91, 23));
         jbCrear.setNextFocusableComponent(jbModificar);
+        jbCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCrearActionPerformed(evt);
+            }
+        });
 
         jbModificar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jbModificar.setText("MODIFICAR");
@@ -205,6 +210,10 @@ public class TipoHabitación extends javax.swing.JFrame {
     jcbCapacidad.setSelectedIndex(0);
 
     }//GEN-LAST:event_jLimpiarActionPerformed
+
+    private void jbCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCrearActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbCrearActionPerformed
 
     /**
      * @param args the command line arguments
