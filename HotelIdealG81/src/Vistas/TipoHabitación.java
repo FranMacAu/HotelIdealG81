@@ -8,6 +8,8 @@ import AccesoADatos.TipoHabData;
 import Entidades.Habitacion;
 import Entidades.TipoHabitacion; 
 import AccesoADatos.HabitacionData;
+import java.time.ZoneId;
+import java.util.List;
 
         
         
@@ -258,9 +260,10 @@ public class TipoHabitación extends javax.swing.JFrame {
     private void jcbCapacidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbCapacidadActionPerformed
 
         TipoHabitacion th = (TipoHabitacion) jcbCapacidad.getSelectedItem();
-        jcbCapacidad.setText(th.getCapacidad()+"");
-        armarComboDisponibles();
+         jcbCapacidad.setSelectedItem(String.valueOf(th.getCapacidad()));
+         armarComboDisponibles();
 
+    
     }//GEN-LAST:event_jcbCapacidadActionPerformed
 
     /**
@@ -316,6 +319,30 @@ public class TipoHabitación extends javax.swing.JFrame {
     private javax.swing.JTextField jtPrecio;
     private javax.swing.JTextField jtTiposCamas;
     // End of variables declaration//GEN-END:variables
+
+private void armarComboDisponibles() {
+    TipoHabData th = new TipoHabData();
+    TipoHabitacion tipoHabitacionSeleccionado = th.listarTipoHabitaciones().get(jcbCapacidad.getSelectedIndex());
+    HabitacionData hd = new HabitacionData();
+    List<Habitacion> lista = hd.buscarHabitacionesDisponibles(jdcIngreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate(), jdcEgreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate(), tipoHabitacionSeleccionado.getCodigo());
+    int i;
+    for (i = 0; i < lista.size(); i++) {
+        jcbCapacidad.ista.get(i).toString());
+     
+    }}
+
+ private void armarComboBox(){
+            TipoHabData th=new TipoHabData();
+            List<TipoHabitacion> lista = th.listarTipoHabitaciones();
+            int i;
+            for(i=0; i<lista.size(); i++){
+                jcbCapacidad.addItem(lista.get(i).toString());
+            }
+        }
+ 
+
+
+
+
+ 
 }
-
-

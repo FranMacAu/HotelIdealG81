@@ -183,6 +183,11 @@ public class ReservaView extends javax.swing.JFrame {
         jbCalcular.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jbCalcular.setText("CALCULAR");
         jbCalcular.setNextFocusableComponent(jbReservar);
+        jbCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCalcularActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("DEPÓSITO");
@@ -490,6 +495,10 @@ public class ReservaView extends javax.swing.JFrame {
     private void jcbNumHabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbNumHabActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jcbNumHabActionPerformed
+
+    private void jbCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCalcularActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbCalcularActionPerformed
 
     private void jcbTipoHabActionPerformed(java.awt.event.ActionEvent evt) {
         TipoHabitacion th = (TipoHabitacion) jcbTipoHab.getSelectedItem();
