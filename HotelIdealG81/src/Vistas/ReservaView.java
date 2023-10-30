@@ -389,7 +389,7 @@ public class ReservaView extends javax.swing.JFrame {
     private void jtDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtDNIActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtDNIActionPerformed
-/*
+
     
     
     
@@ -427,7 +427,7 @@ public class ReservaView extends javax.swing.JFrame {
     
     }//GEN-LAST:event_jbReservarActionPerformed
  
-    */
+    
     
     
     private void jrbActivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbActivoActionPerformed
