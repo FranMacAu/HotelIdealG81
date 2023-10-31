@@ -90,7 +90,7 @@ public class TipoHabitación extends javax.swing.JFrame {
 
         jtPrecio.setNextFocusableComponent(jbCrear);
 
-        jcbCapacidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcbCapacidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7" }));
         jcbCapacidad.setNextFocusableComponent(jcbCamas);
         jcbCapacidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,7 +98,7 @@ public class TipoHabitación extends javax.swing.JFrame {
             }
         });
 
-        jcbCamas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcbCamas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "", "3", "4" }));
 
         jtTiposCamas.setNextFocusableComponent(jtPrecio);
         jtTiposCamas.addActionListener(new java.awt.event.ActionListener() {
@@ -258,11 +258,6 @@ public class TipoHabitación extends javax.swing.JFrame {
     }//GEN-LAST:event_jtTiposCamasActionPerformed
 
     private void jcbCapacidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbCapacidadActionPerformed
-
-        TipoHabitacion th = (TipoHabitacion) jcbCapacidad.getSelectedItem();
-         jcbCapacidad.setSelectedItem(String.valueOf(th.getCapacidad()));
-         armarComboDisponibles();
-
     
     }//GEN-LAST:event_jcbCapacidadActionPerformed
 
@@ -320,29 +315,8 @@ public class TipoHabitación extends javax.swing.JFrame {
     private javax.swing.JTextField jtTiposCamas;
     // End of variables declaration//GEN-END:variables
 
-private void armarComboDisponibles() {
-    TipoHabData th = new TipoHabData();
-    TipoHabitacion tipoHabitacionSeleccionado = th.listarTipoHabitaciones().get(jcbCapacidad.getSelectedIndex());
-    HabitacionData hd = new HabitacionData();
-    List<Habitacion> lista = hd.buscarHabitacionesDisponibles(jdcIngreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate(), jdcEgreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate(), tipoHabitacionSeleccionado.getCodigo());
-    int i;
-    for (i = 0; i < lista.size(); i++) {
-        jcbCapacidad.ista.get(i).toString());
-     
-    }}
-
- private void armarComboBox(){
-            TipoHabData th=new TipoHabData();
-            List<TipoHabitacion> lista = th.listarTipoHabitaciones();
-            int i;
-            for(i=0; i<lista.size(); i++){
-                jcbCapacidad.addItem(lista.get(i).toString());
-            }
-        }
- 
 
 
 
 
- 
 }
