@@ -45,7 +45,7 @@ public class TipoHabitación extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("MODIFICACIÓN DE HABITACIONES");
+        jLabel1.setText("MODIFICACIÓN DE TIPO HABITACIONES");
 
         jLabel2.setText("Nombre:");
 
@@ -127,10 +127,6 @@ public class TipoHabitación extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(61, 61, 61))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,6 +162,10 @@ public class TipoHabitación extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jbEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -261,7 +261,7 @@ public class TipoHabitación extends javax.swing.JFrame {
 
         TipoHabitacion th = (TipoHabitacion) jcbCapacidad.getSelectedItem();
          jcbCapacidad.setSelectedItem(String.valueOf(th.getCapacidad()));
-         armarComboDisponibles();
+
 
     
     }//GEN-LAST:event_jcbCapacidadActionPerformed
@@ -320,25 +320,7 @@ public class TipoHabitación extends javax.swing.JFrame {
     private javax.swing.JTextField jtTiposCamas;
     // End of variables declaration//GEN-END:variables
 
-private void armarComboDisponibles() {
-    TipoHabData th = new TipoHabData();
-    TipoHabitacion tipoHabitacionSeleccionado = th.listarTipoHabitaciones().get(jcbCapacidad.getSelectedIndex());
-    HabitacionData hd = new HabitacionData();
-    List<Habitacion> lista = hd.buscarHabitacionesDisponibles(jdcIngreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate(), jdcEgreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate(), tipoHabitacionSeleccionado.getCodigo());
-    int i;
-    for (i = 0; i < lista.size(); i++) {
-        jcbCapacidad.ista.get(i).toString());
-     
-    }}
 
- private void armarComboBox(){
-            TipoHabData th=new TipoHabData();
-            List<TipoHabitacion> lista = th.listarTipoHabitaciones();
-            int i;
-            for(i=0; i<lista.size(); i++){
-                jcbCapacidad.addItem(lista.get(i).toString());
-            }
-        }
  
 
 

@@ -268,30 +268,36 @@ public class HuespedView extends javax.swing.JFrame {
 
     private void jbCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCrearActionPerformed
     String dniStr = jtDNI.getText();
+    jbCrear.setEnabled(false);
     
     if (dniStr.isEmpty()) {
-        JOptionPane.showMessageDialog(jtDNI , "Ingresa un numero de DNi valido0");
+        JOptionPane.showMessageDialog(jtDNI , "Ingresa un numero de DNi valido");
+        jbCrear.setEnabled(true);
         return; 
     }
     
-    
+        
    try { 
         int dni = Integer.parseInt(dniStr);
         HuespedData huespedData =new HuespedData();
-        Huesped huesped = huespedData.buscarPordni(dni);
-        if (huesped != null ) {
-         huesped = huespedData.buscarPordni(dni);
-         jtDNI.setText(String.valueOf(huesped.getDni()));
-         jtNombre.setText(huesped.getNombre());  
-         jtApellido.setText(huesped.getApellido());
-         jtEmail.setText(huesped.getCorreo());
-         jtTelefono.setText(String.valueOf(huesped.getTelefono()));   
-         jtDireccion.setText(huesped.getDomicilio());    
-        } else {
-            JOptionPane.showMessageDialog(jtDNI , "No se encontro ningun huesped con ese DNI");
-        }
+        Huesped huesped = new Huesped();
+        
+        huesped.setDni(Integer.parseInt(dniStr));
+        huesped.setNombre(jtNombre.getText());
+        huesped.setApellido(jtApellido.getText());
+        huesped.setCorreo(jtEmail.getText());
+        huesped.setDomicilio(jtDireccion.getText());
+        huesped.setTelefono(Integer.parseInt(jtTelefono.getText()));
+        huesped.setEstado(true);
+        
+        huespedData.GuardarHuesped(huesped);
+        
+        JOptionPane.showMessageDialog(null, "Huésped guardado");
+        jbCrear.setEnabled(true);
+        
    } catch (NumberFormatException ex) { 
-       JOptionPane.showMessageDialog(jtDNI , "Ingresa un DNi valido0");
+       JOptionPane.showMessageDialog(jtDNI , "Ingresa un DNi valido");
+       jbCrear.setEnabled(true);
         }
     }//GEN-LAST:event_jbCrearActionPerformed
 
