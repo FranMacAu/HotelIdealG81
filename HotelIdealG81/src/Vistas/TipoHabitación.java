@@ -1,4 +1,3 @@
-
 package Vistas;
 
 import AccesoADatos.HuespedData;
@@ -36,11 +35,11 @@ public class TipoHabitación extends javax.swing.JFrame {
         jbEliminar = new javax.swing.JButton();
         jtNombreHab = new javax.swing.JTextField();
         jtPrecio = new javax.swing.JTextField();
-        jcbCapacidad = new javax.swing.JComboBox<>();
-        jcbCamas = new javax.swing.JComboBox<>();
-        jtTiposCamas = new javax.swing.JTextField();
         JBuscar = new javax.swing.JButton();
         jLimpiar = new javax.swing.JButton();
+        jctc = new javax.swing.JComboBox<>();
+        jtCapacidad = new javax.swing.JTextField();
+        jtCamas = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,7 +48,7 @@ public class TipoHabitación extends javax.swing.JFrame {
 
         jLabel2.setText("Nombre:");
 
-        jLabel3.setText("Capacidad");
+        jLabel3.setText("Capacidad:");
 
         jLabel4.setText("Camas:");
 
@@ -81,7 +80,6 @@ public class TipoHabitación extends javax.swing.JFrame {
             }
         });
 
-        jtNombreHab.setNextFocusableComponent(jcbCapacidad);
         jtNombreHab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtNombreHabActionPerformed(evt);
@@ -89,23 +87,6 @@ public class TipoHabitación extends javax.swing.JFrame {
         });
 
         jtPrecio.setNextFocusableComponent(jbCrear);
-
-        jcbCapacidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jcbCapacidad.setNextFocusableComponent(jcbCamas);
-        jcbCapacidad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcbCapacidadActionPerformed(evt);
-            }
-        });
-
-        jcbCamas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jtTiposCamas.setNextFocusableComponent(jtPrecio);
-        jtTiposCamas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtTiposCamasActionPerformed(evt);
-            }
-        });
 
         JBuscar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         JBuscar.setText("BUSCAR");
@@ -123,6 +104,8 @@ public class TipoHabitación extends javax.swing.JFrame {
             }
         });
 
+        jctc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Simple", "Doble", "Triple", "Suite Lujo" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -138,25 +121,27 @@ public class TipoHabitación extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(115, 115, 115)
-                                .addComponent(jbModificar))
+                                .addComponent(jbModificar)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jtPrecio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jcbCapacidad, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jtNombreHab, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jcbCamas, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(jtNombreHab, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jtCapacidad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jtCamas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jbCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jtTiposCamas, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jbCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                        .addComponent(jctc, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -180,16 +165,16 @@ public class TipoHabitación extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jcbCapacidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbEliminar))
+                    .addComponent(jbEliminar)
+                    .addComponent(jtCapacidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jcbCamas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jtCamas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jtTiposCamas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jctc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -199,18 +184,45 @@ public class TipoHabitación extends javax.swing.JFrame {
                     .addComponent(jbModificar)
                     .addComponent(jbCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLimpiar))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addGap(29, 29, 29))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
+    String nombreHabitacion = jtNombreHab.getText();
 
-  
+    if (nombreHabitacion.isEmpty()) {
+        JOptionPane.showMessageDialog(jtNombreHab, "Ingresa un nombre de habitación válido");
+    } else {
+        TipoHabData thd = new TipoHabData();
+        TipoHabitacion th = thd.buscarPorNombre(nombreHabitacion);
 
+        if (th != null) {
+            int confirmacion = JOptionPane.showConfirmDialog(jtNombreHab, "¿Estás seguro de que deseas eliminar esta habitación?", "Confirmación", JOptionPane.YES_NO_OPTION);
+
+            if (confirmacion == JOptionPane.YES_OPTION) {                
+               thd.eliminarTipoHabitacion(th.getNombre());               
+                    JOptionPane.showMessageDialog(jtNombreHab, "Habitación eliminada con éxito.");
+                    jtNombreHab.setText("");
+                    jtPrecio.setText("");
+                    jtCapacidad.setText("");
+                    jtCamas.setText("");
+                    jctc.setSelectedIndex(0);
+               
+            
+        } else {
+            JOptionPane.showMessageDialog(jtNombreHab, "No se encontró una habitación con ese nombre.");
+        }
+    }
+
+ 
+    
     }//GEN-LAST:event_jbEliminarActionPerformed
-
+    }
+    
+    
     private void JBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBuscarActionPerformed
     String nombreStr = jtNombreHab.getText();
     
@@ -225,7 +237,7 @@ public class TipoHabitación extends javax.swing.JFrame {
        int nombre = Integer.parseInt(nombreStr);
         if (th != null ) {
         jtNombreHab.setText(th.getNombre());
-        jtTiposCamas.setText(th.getTipoCama());
+        jtPrecio.setText(String.valueOf(th.getPrecio()));
         jtPrecio.setText(String.valueOf(th.getPrecio()));
         }  else {
             JOptionPane.showMessageDialog(jtNombreHab , "No se encontro ninguna habitacion con ese numero");
@@ -239,9 +251,9 @@ public class TipoHabitación extends javax.swing.JFrame {
     private void jLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jLimpiarActionPerformed
     jtNombreHab.setText("");
     jtPrecio.setText("");
-    jtTiposCamas.setText("");
-    jcbCamas.setSelectedIndex(0);
-    jcbCapacidad.setSelectedIndex(0);
+    jtCapacidad.setText("");
+    jtCamas.setText("");
+    jctc.setSelectedIndex(0);
 
     }//GEN-LAST:event_jLimpiarActionPerformed
 
@@ -252,19 +264,6 @@ public class TipoHabitación extends javax.swing.JFrame {
     private void jtNombreHabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtNombreHabActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtNombreHabActionPerformed
-
-    private void jtTiposCamasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtTiposCamasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtTiposCamasActionPerformed
-
-    private void jcbCapacidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbCapacidadActionPerformed
-
-        TipoHabitacion th = (TipoHabitacion) jcbCapacidad.getSelectedItem();
-         jcbCapacidad.setSelectedItem(String.valueOf(th.getCapacidad()));
-         armarComboDisponibles();
-
-    
-    }//GEN-LAST:event_jcbCapacidadActionPerformed
 
     /**
      * @param args the command line arguments
@@ -313,11 +312,11 @@ public class TipoHabitación extends javax.swing.JFrame {
     private javax.swing.JButton jbCrear;
     private javax.swing.JButton jbEliminar;
     private javax.swing.JButton jbModificar;
-    private javax.swing.JComboBox<String> jcbCamas;
-    private javax.swing.JComboBox<String> jcbCapacidad;
+    private javax.swing.JComboBox<String> jctc;
+    private javax.swing.JTextField jtCamas;
+    private javax.swing.JTextField jtCapacidad;
     private javax.swing.JTextField jtNombreHab;
     private javax.swing.JTextField jtPrecio;
-    private javax.swing.JTextField jtTiposCamas;
     // End of variables declaration//GEN-END:variables
 
 private void armarComboDisponibles() {
@@ -331,18 +330,7 @@ private void armarComboDisponibles() {
      
     }}
 
- private void armarComboBox(){
-            TipoHabData th=new TipoHabData();
-            List<TipoHabitacion> lista = th.listarTipoHabitaciones();
-            int i;
-            for(i=0; i<lista.size(); i++){
-                jcbCapacidad.addItem(lista.get(i).toString());
-            }
-        }
- 
 
 
 
-
- 
 }
