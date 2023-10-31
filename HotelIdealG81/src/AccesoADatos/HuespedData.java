@@ -102,13 +102,13 @@ public class HuespedData {
     }
             
     public Huesped buscarPordni (int dni) {
-    String sql="SELECT idHuesped, nombre, apellido, correo, telefono FROM huesped WHERE dni= ? ";
+    String sql="SELECT idHuesped, nombre, apellido, correo, telefono, dni, domicilio FROM huesped WHERE dni= ? ";
     Huesped huesped=null;
         
         try {
-            PreparedStatement ps = con.prepareStatement(sql);
+            PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, dni);
-            ResultSet rs=ps.getGeneratedKeys();
+            ResultSet rs=ps.executeQuery(); 
         
             if(rs.next()) {
                 huesped =new Huesped();
@@ -126,7 +126,7 @@ public class HuespedData {
             
             
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "No se pudo conectar a la tabla");
+            JOptionPane.showMessageDialog(null, "No se pudo conectar a la tabla"+ex);
         }
         return huesped;
     }
