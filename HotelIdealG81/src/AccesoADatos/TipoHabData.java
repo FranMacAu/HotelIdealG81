@@ -47,6 +47,35 @@ public class TipoHabData {
         }
     }
     
+    public void eliminarTipoHabitacion (String nombre) { 
+    
+    String sql = "DELETE FROM tipohabitacion WHERE nombre = ?";
+    
+    try {
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, nombre);
+        
+        int filasAfectadas = ps.executeUpdate();
+        if (filasAfectadas > 0) {
+            JOptionPane.showMessageDialog(null, "Numero de habitación eliminado con éxito.");
+        } else {
+            JOptionPane.showMessageDialog(null, "No se encontró ningúna habitación con el numero proporcionado.");
+        }
+        
+        ps.close();
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "Error al eliminar el numero de habitación: " + ex.getMessage());
+    }
+}
+
+            
+            
+            
+            
+    
+    
+    
+    
     public void cambiarPrecioPorTipo(TipoHabitacion th, double precio){
         String sql = "UPDATE tipohabitacion SET precio= ? WHERE idTipoHab= ?";
         
