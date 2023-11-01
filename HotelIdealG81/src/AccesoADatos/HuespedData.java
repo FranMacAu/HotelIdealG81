@@ -54,19 +54,18 @@ public class HuespedData {
     }
     
     public void modificarHuesped(Huesped huesped){
-        String sql="UPDATE huesped SET nombre= ?, apellido= ?, dni= ?, domicilio= ?, correo= ?, telefono= ?, estado= ? "
-                + "WHERE idHuesped= ?";
+        String sql="UPDATE huesped SET nombre= ?, apellido= ?, dni= ?, domicilio= ?, correo= ?, telefono= ? "
+                + "WHERE dni= ?";
         
         try {
-            PreparedStatement ps = con.prepareStatement(sql);
+            PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, huesped.getNombre());
             ps.setString(2, huesped.getApellido());
             ps.setInt(3, huesped.getDni());
             ps.setString(4, huesped.getDomicilio());
             ps.setString(5, huesped.getCorreo());
             ps.setInt(6, huesped.getTelefono());
-            ps.setBoolean(7, huesped.isActivo());
-            ps.setInt(8, huesped.getIdHuesped());
+            ps.setInt(7, huesped.getDni());
             
             int exito=ps.executeUpdate();
             if(exito==1){
@@ -82,12 +81,12 @@ public class HuespedData {
         }
     }
     
-    public void eliminarHuesped(int id){
-        String sql="UPDATE huesped SET estado=0 WHERE idHuesped= ?";
+    public void eliminarHuesped(int dni){
+        String sql="UPDATE huesped SET estado=0 WHERE dni= ?";
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, id);
+            ps.setInt(1, dni);
             
             int exito=ps.executeUpdate();
             if(exito==1){
