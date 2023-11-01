@@ -15,10 +15,7 @@ import java.util.List;
         
 public class TipoHabitación extends javax.swing.JFrame {
 
-   
-    public TipoHabitación() {
-        initComponents();
-    }
+
 
    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

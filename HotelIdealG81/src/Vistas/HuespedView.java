@@ -230,7 +230,7 @@ public class HuespedView extends javax.swing.JFrame {
     String dniStr = jtDNI.getText();
     
     if (dniStr.isEmpty()) {
-        JOptionPane.showMessageDialog(jtDNI , "Ingresa un numero de DNi valido0");
+        JOptionPane.showMessageDialog(jtDNI , "Ingresa un numero de DNI valido");
         return; 
     }
     
@@ -266,16 +266,20 @@ public class HuespedView extends javax.swing.JFrame {
         HuespedData hd=new HuespedData();
         Huesped h = new Huesped();
         
-       
+       if (jtDNI.getText().isEmpty()) {
+        JOptionPane.showMessageDialog(jtDNI , "Ingresa un numero de DNI "); 
+        }else{
         hd.eliminarHuesped(dni);
 
+       }
+        
     }//GEN-LAST:event_jbEliminarActionPerformed
 
     private void jbCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCrearActionPerformed
     String dniStr = jtDNI.getText();
     
     if (dniStr.isEmpty()) {
-        JOptionPane.showMessageDialog(jtDNI , "Ingresa un numero de DNi valido");
+        JOptionPane.showMessageDialog(jtDNI , "Ingresa un numero de DNI valido");
         return; 
     }
     
@@ -297,7 +301,7 @@ public class HuespedView extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Huésped guardado");
         
    } catch (NumberFormatException ex) { 
-       JOptionPane.showMessageDialog(jtDNI , "Ingresa un DNi valido");
+       JOptionPane.showMessageDialog(jtDNI , "Ingresa un DNI valido");
         }
     }//GEN-LAST:event_jbCrearActionPerformed
 
@@ -305,7 +309,7 @@ public class HuespedView extends javax.swing.JFrame {
     String dniStr = jtDNI.getText();
     
     if (dniStr.isEmpty()) {
-        JOptionPane.showMessageDialog(jtDNI , "Ingresa un numero de DNi valido");
+        JOptionPane.showMessageDialog(jtDNI , "Ingresa un numero de DNI valido");
         return; 
     }
     
@@ -327,7 +331,7 @@ public class HuespedView extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Huésped modificado");
         
    } catch (NumberFormatException ex) { 
-       JOptionPane.showMessageDialog(jtDNI , "Ingresa un DNi valido");
+       JOptionPane.showMessageDialog(jtDNI , "Ingresa un DNI valido");
         }
     
     }//GEN-LAST:event_jbModificarActionPerformed
