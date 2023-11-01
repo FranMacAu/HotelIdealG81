@@ -117,6 +117,11 @@ public class HotelIdealGeneral extends javax.swing.JFrame {
 
         jMISalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/marca-x-rectangular.png"))); // NOI18N
         jMISalir.setText("Salir");
+        jMISalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMISalirActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMISalir);
 
         jMenuBar1.add(jMenu4);
@@ -176,6 +181,11 @@ public class HotelIdealGeneral extends javax.swing.JFrame {
         Habitacion.setVisible(true);
         jDesktopPane1.add(Habitacion);
     }//GEN-LAST:event_jMIHabActionPerformed
+
+    private void jMISalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMISalirActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jMISalirActionPerformed
 
     /**
      * @param args the command line arguments

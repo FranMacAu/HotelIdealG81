@@ -124,7 +124,7 @@ public class ReservaView extends javax.swing.JFrame {
 
         jlCombCamas.setText("Tipo de camas:");
 
-        jcbTipoHab.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcbTipoHab.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Simple", "Doble", "Triple", "Suite" }));
         jcbTipoHab.setNextFocusableComponent(jcbNumHab);
         jcbTipoHab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,6 +161,11 @@ public class ReservaView extends javax.swing.JFrame {
         jbSalir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jbSalir.setText("SALIR");
         jbSalir.setNextFocusableComponent(jbEliminar);
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirActionPerformed(evt);
+            }
+        });
 
         jbEliminar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jbEliminar.setText("ELIMINAR");
@@ -499,6 +504,11 @@ public class ReservaView extends javax.swing.JFrame {
     private void jbCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCalcularActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jbCalcularActionPerformed
+
+    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jbSalirActionPerformed
 
     private void jcbTipoHabActionPerformed(java.awt.event.ActionEvent evt) {
         TipoHabitacion th = (TipoHabitacion) jcbTipoHab.getSelectedItem();
