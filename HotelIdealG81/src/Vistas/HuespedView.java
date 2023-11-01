@@ -270,7 +270,7 @@ public class HuespedView extends javax.swing.JFrame {
     String dniStr = jtDNI.getText();
     
     if (dniStr.isEmpty()) {
-        JOptionPane.showMessageDialog(jtDNI , "Ingresa un numero de DNi valido0");
+        JOptionPane.showMessageDialog(jtDNI , "Ingresa un numero de DNi valido");
         return; 
     }
     
@@ -278,20 +278,21 @@ public class HuespedView extends javax.swing.JFrame {
    try { 
         int dni = Integer.parseInt(dniStr);
         HuespedData huespedData =new HuespedData();
-        Huesped huesped = huespedData.buscarPordni(dni);
-        if (huesped != null ) {
-         huesped = huespedData.buscarPordni(dni);
-         jtDNI.setText(String.valueOf(huesped.getDni()));
-         jtNombre.setText(huesped.getNombre());  
-         jtApellido.setText(huesped.getApellido());
-         jtEmail.setText(huesped.getCorreo());
-         jtTelefono.setText(String.valueOf(huesped.getTelefono()));   
-         jtDireccion.setText(huesped.getDomicilio());    
-        } else {
-            JOptionPane.showMessageDialog(jtDNI , "No se encontro ningun huesped con ese DNI");
-        }
+        Huesped huesped = new Huesped();
+        
+        huesped.setDni(Integer.parseInt(dniStr));
+        huesped.setNombre(jtNombre.getText());
+        huesped.setApellido(jtApellido.getText());
+        huesped.setCorreo(jtEmail.getText());
+        huesped.setDomicilio(jtDireccion.getText());
+        huesped.setTelefono(Integer.parseInt(jtTelefono.getText()));
+        
+        huespedData.GuardarHuesped(huesped);
+        
+        JOptionPane.showMessageDialog(null, "Huésped guardado");
+        
    } catch (NumberFormatException ex) { 
-       JOptionPane.showMessageDialog(jtDNI , "Ingresa un DNi valido0");
+       JOptionPane.showMessageDialog(jtDNI , "Ingresa un DNi valido");
         }
     }//GEN-LAST:event_jbCrearActionPerformed
 

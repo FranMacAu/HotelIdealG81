@@ -201,11 +201,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtApellido">
-      <Properties>
-        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-          <ComponentRef name="default"/>
-        </Property>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtTelefono">
       <Properties>
@@ -222,11 +217,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtDireccion">
-      <Properties>
-        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-          <ComponentRef name="default"/>
-        </Property>
-      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jbBuscar">
       <Properties>
