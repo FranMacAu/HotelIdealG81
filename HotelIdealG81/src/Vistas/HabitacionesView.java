@@ -1,5 +1,12 @@
 package Vistas;
 
+import AccesoADatos.HabitacionData;
+import AccesoADatos.HuespedData;
+import Entidades.Habitacion;
+import Entidades.Huesped;
+import java.util.HashSet;
+import javax.swing.JOptionPane;
+import Entidades.TipoHabitacion;
 
 public class HabitacionesView extends javax.swing.JFrame {
 
@@ -41,12 +48,22 @@ public class HabitacionesView extends javax.swing.JFrame {
         jbCrear.setMaximumSize(new java.awt.Dimension(91, 23));
         jbCrear.setMinimumSize(new java.awt.Dimension(91, 23));
         jbCrear.setNextFocusableComponent(jbEliminar);
+        jbCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCrearActionPerformed(evt);
+            }
+        });
 
         jbEliminar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jbEliminar.setText("ELIMINAR");
         jbEliminar.setMaximumSize(new java.awt.Dimension(91, 23));
         jbEliminar.setMinimumSize(new java.awt.Dimension(91, 23));
         jbEliminar.setNextFocusableComponent(jbModificar);
+        jbEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEliminarActionPerformed(evt);
+            }
+        });
 
         jbModificar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jbModificar.setText("MODIFICAR");
@@ -140,7 +157,54 @@ public class HabitacionesView extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jBSalirActionPerformed
 
-    
+    private void jbCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCrearActionPerformed
+         String nombreHabitacion = jtfNombreHab.getText();
+           String pisoHabitacion = jtfPisoHab.getText();
+           String tipoHabitacion = jcbTipoHab.getSelectedItem().toString();
+           
+           HabitacionData hd = new HabitacionData (); 
+           Habitacion h = new Habitacion(); 
+        if (nombreHabitacion.isEmpty() || pisoHabitacion.isEmpty() || tipoHabitacion.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos.");
+        return;
+        
+    }
+        jtfNombreHab.setText("");
+     jtfPisoHab.setText("");
+     jcbTipoHab.setSelectedIndex(0);
+          JOptionPane.showMessageDialog(this, "Habitación creada exitosamente.");
+     
+    h.setNombre(nombreHabitacion);
+    h.setPiso(pisoHabitacion);
+    h.setTipoHab(tipoHabitacion);
+    }//GEN-LAST:event_jbCrearActionPerformed
+
+    private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
+     String nombreStr = jtfNombreHab.getText();
+          
+          if (nombreStr.isEmpty()) {
+        JOptionPane.showMessageDialog(jtfNombreHab, "Ingresa un numero de habitacion valido");
+        return; 
+    }
+         try {
+              
+              HabitacionData habitacionData = new HabitacionData();
+              Habitacion habitacion = habitacionData.buscarPornombre(nombre);
+              if (habitacion != null) {                
+              int idHabitacion = habitacion.getIdHabitacion();
+              if (idHabitacion > 0) {
+              eliminarHabitacion(String nombre); 
+                JOptionPane.showMessageDialog(jtfNombreHab, "Habitacion eliminada con éxito");
+            } else {
+            
+        } else {
+            JOptionPane.showMessageDialog(jtfNombreHab, "No se encontró ninguna habitacion con ese numero ");
+        }
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(jtfNombreHab, "Ingresa un numero válido");
+    }    }//GEN-LAST:event_jbEliminarActionPerformed
+    }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -187,3 +251,5 @@ public class HabitacionesView extends javax.swing.JFrame {
     private javax.swing.JTextField jtfPisoHab;
     // End of variables declaration//GEN-END:variables
 }
+
+

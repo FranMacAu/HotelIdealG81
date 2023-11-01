@@ -130,6 +130,9 @@
           <ComponentRef name="jbEliminar"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbCrearActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jbEliminar">
       <Properties>
@@ -147,6 +150,9 @@
           <ComponentRef name="jbModificar"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbEliminarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jbModificar">
       <Properties>

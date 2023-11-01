@@ -75,12 +75,12 @@ public class HabitacionData {
         }
     }
     
-    public void eliminarHabitacion(int id){ //sin probar aún
+    public void eliminarHabitacion(String nombre){ 
         String sql="UPDATE habitaciones SET estado=0 WHERE idHabitacion= ?";
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, id);
+            ps.setString(1, nombre);
             
             int exito=ps.executeUpdate();
             if(exito==1){
