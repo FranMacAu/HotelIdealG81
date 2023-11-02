@@ -375,27 +375,44 @@ public class ReservaView extends javax.swing.JFrame {
 
         if (huesped == null || habitacion == null) {
             JOptionPane.showMessageDialog(null, "Selecciona un huésped y una habitación válidos.");
-            return;
-        }
-
+            
+        }else{
         Reserva reserva = new Reserva();
-        reserva.setIdHuesped(huesped.getId());
-        reserva.setIdHabitacion(habitacion.getId());
+        reserva.setIdHuesped(huesped.getIdHuesped());
+        reserva.setIdHabitacion(habitacion.getIdHabitacion());
+         String fechaInicioStr = JOptionPane.showInputDialog(null, "Ingresa la fecha de inicio de la reserva (YYYY-MM-DD):");
 
-        GuardarReserva(reserva);
+    if (fechaInicioStr == null || fechaInicioStr.isEmpty()) {
+        JOptionPane.showMessageDialog(null, "La fecha de inicio es requerida.");
+        return;
     }
 
-    private Huesped obtenerHuesped() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    LocalDate fechaInicio = LocalDate.parse(fechaInicioStr);
+
+    String fechaFinalStr = JOptionPane.showInputDialog(null, "Ingresa la fecha de final de la reserva (YYYY-MM-DD):");
+
+    if (fechaFinalStr == null || fechaFinalStr.isEmpty()) {
+        JOptionPane.showMessageDialog(null, "La fecha de final es requerida.");
+        return;
     }
 
-    private Habitacion obtenerHabitacion() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    LocalDate fechaFinal = LocalDate.parse(fechaFinalStr);
+
+    if (fechaFinal.isBefore(fechaInicio)) {
+        JOptionPane.showMessageDialog(null, "La fecha de final debe ser posterior a la fecha de inicio.");
+        return;
     }
 
-    private void GuardarReserva(Reserva reserva) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
 
+        ReservaData reservaData = new ReservaData();
+        reservaData.GuardarReserva(reserva);             
+        JOptionPane.showMessageDialog(null, "Reserva creada exitosamente.");
+        reserva.setInicio(fechaInicio);
+        reserva.setFin(fechaFinal);
+        
+    }
+    
     }//GEN-LAST:event_jbReservarActionPerformed
 
 
@@ -604,4 +621,52 @@ public class ReservaView extends javax.swing.JFrame {
 
     }
   
+    private Huesped obtenerHuesped() {
+    String dniStr = jtDNI.getText();
+
+    if (dniStr.isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Ingresa un DNI de huésped válido.");
+        return null;
+    }
+
+    try {
+        int dni = Integer.parseInt(dniStr);
+
+        HuespedData huespedData = new HuespedData();
+        Huesped huesped = huespedData.buscarPordni(dni);
+
+        if (huesped != null) {
+            return huesped;
+        } else {
+            JOptionPane.showMessageDialog(null, "No se encontró un huésped con el DNI proporcionado.");
+        }
+    } catch (NumberFormatException ex) {
+        JOptionPane.showMessageDialog(null, "Ingresa un DNI válido (número entero).");
+    }
+
+    return null; 
+}
+    
+    
+    private Habitacion obtenerHabitacion() {
+    String nombreHabitacion = (String) jcbNumHab.getSelectedItem();
+
+    if (nombreHabitacion == null || nombreHabitacion.isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Selecciona una habitación válida.");
+        return null;
+    }
+
+    HabitacionData habitacionData = new HabitacionData();
+    Habitacion habitacion = habitacionData.buscarHabitacionPorNombre(nombreHabitacion);
+
+    if (habitacion != null) {
+        return habitacion;
+    } else {
+        JOptionPane.showMessageDialog(null, "No se encontró una habitación con el nombre proporcionado.");
+    }
+
+    return null; 
+
+}
+
 }
