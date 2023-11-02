@@ -38,18 +38,18 @@
 
                 ps.executeUpdate();
                 ResultSet rs = ps.getGeneratedKeys();
-                //System.out.println("Bloque try");
+               
                 if (rs.next()) {
                     reserva.setIdReserva(rs.getInt(1));
                     JOptionPane.showMessageDialog(null, "Reserva guardado");
-                    //System.out.println("Bloque if");
+                    
                 }
 
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null, "Error al acceder a la tabla de reserva");
 
             }
-            //System.out.println("Ejecutado");    
+             
         }
 
         public void modificarReserva(Reserva res) {
@@ -161,5 +161,5 @@
             
             
         }
-
+           
     }

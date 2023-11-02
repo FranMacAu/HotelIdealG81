@@ -1,14 +1,10 @@
 package Vistas;
 
-import AccesoADatos.HuespedData;
-import Entidades.Huesped;
+
 import javax.swing.JOptionPane;
 import AccesoADatos.TipoHabData;
-import Entidades.Habitacion;
 import Entidades.TipoHabitacion; 
-import AccesoADatos.HabitacionData;
-import java.time.ZoneId;
-import java.util.List;
+
 
         
         
@@ -192,6 +188,8 @@ public class TipoHabitación extends javax.swing.JFrame {
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
     String nombreHabitacion = jtNombreHab.getText();
+    
+    
 
     if (nombreHabitacion.isEmpty()) {
         JOptionPane.showMessageDialog(jtNombreHab, "Ingresa un nombre de habitación válido");

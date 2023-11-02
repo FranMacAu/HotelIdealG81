@@ -196,12 +196,12 @@ public class HabitacionData {
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, codigoTH);
-            ps.setObject(2, ini);
-            ps.setObject(3, fin);
-            ps.setObject(4, ini);
-            ps.setObject(5, fin);
-            ps.setObject(6, ini);
-            ps.setObject(7, fin);
+            ps.setString(2, ini.toString());
+            ps.setString(3, fin.toString());
+            ps.setString(4, ini.toString());
+            ps.setString(5, fin.toString());
+            ps.setString(6, ini.toString());
+            ps.setString(7, fin.toString());
 
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
