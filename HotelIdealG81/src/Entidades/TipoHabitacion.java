@@ -1,7 +1,7 @@
 package Entidades;
 
 public class TipoHabitacion {
-    
+
     private int codigo;
     private String nombre;
     private int capacidad;
@@ -25,8 +25,6 @@ public class TipoHabitacion {
         this.tipoCama = tipoCama;
         this.precio = precio;
     }
-    
-    
 
     public TipoHabitacion() {
     }
@@ -38,9 +36,9 @@ public class TipoHabitacion {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
-    public void cambiarPrecio(double precio){
-        this.precio=precio;
+
+    public void cambiarPrecio(double precio) {
+        this.precio = precio;
     }
 
     public int getCodigo() {
@@ -85,15 +83,7 @@ public class TipoHabitacion {
 
     @Override
     public String toString() {
-        return "TipoHabitacion{" +codigo+" "+ nombre + ", capacidad=" + capacidad + ", cantidadCamas=" + cantidadCamas + '}';
+        return "TipoHabitacion{" + codigo + " " + nombre + ", capacidad=" + capacidad + ", cantidadCamas=" + cantidadCamas + '}';
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
 }

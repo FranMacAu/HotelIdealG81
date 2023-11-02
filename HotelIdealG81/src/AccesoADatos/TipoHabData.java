@@ -193,7 +193,7 @@ public class TipoHabData {
 
 
 
-public void modificarTipoHabitacion(TipoHabitacion tip) {
+    public void modificarTipoHabitacion(TipoHabitacion tip) {
     String sql = "UPDATE tipohabitacion SET nombre = ?, capacidad = ?, camas = ?, tipoCamas = ?, precio = ? WHERE codigo = ?";
 
     try {

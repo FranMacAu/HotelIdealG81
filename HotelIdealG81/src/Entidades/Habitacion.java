@@ -1,7 +1,7 @@
 package Entidades;
 
 public class Habitacion {
-    
+
     private int idHabitacion;
     private String nombre;
     private int piso;
@@ -15,14 +15,13 @@ public class Habitacion {
         this.tipoHab = tipoHab;
         this.estado = estado;
     }
-    
+
     public Habitacion(String nombre, int piso, int tipoHab, boolean estado) {
         this.nombre = nombre;
         this.piso = piso;
         this.tipoHab = tipoHab;
         this.estado = estado;
     }
-    
 
     public Habitacion() {
     }
@@ -70,11 +69,5 @@ public class Habitacion {
     public int getId() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
-    
-    
-    
-    
-    
+
 }

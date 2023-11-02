@@ -5,14 +5,11 @@ import AccesoADatos.ReservaData;
 import Entidades.Huesped;
 import javax.swing.JOptionPane;
 
-
 public class HuespedView extends javax.swing.JFrame {
-
 
     public HuespedView() {
         initComponents();
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -213,139 +210,136 @@ public class HuespedView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
-    String dniStr = jtDNI.getText();
-    
-    if (dniStr.isEmpty()) {
-        JOptionPane.showMessageDialog(jtDNI , "Ingresa un numero de DNI valido");
-        return; 
-    }
-    
-    
-   try { 
-    int dni = Integer.parseInt(dniStr);
-    HuespedData huespedData = new HuespedData();
-    Huesped huesped = huespedData.buscarPordni(dni);
-    
-    if (huesped != null) {
-        jtDNI.setText(dniStr);
-        jtNombre.setText(huesped.getNombre());  
-        jtApellido.setText(huesped.getApellido());
-        jtEmail.setText(huesped.getCorreo());
-        jtTelefono.setText(String.valueOf(huesped.getTelefono()));   
-        jtDireccion.setText(huesped.getDomicilio());    
-    } else {
-        JOptionPane.showMessageDialog(jtDNI , "No se encontró ningún huésped con ese DNI");
-    }
-} catch (NumberFormatException ex) { 
-    JOptionPane.showMessageDialog(jtDNI , "Ingresa un DNI válido");
-}
+        String dniStr = jtDNI.getText();
+
+        if (dniStr.isEmpty()) {
+            JOptionPane.showMessageDialog(jtDNI, "Ingresa un numero de DNI valido");
+            return;
+        }
+
+        try {
+            int dni = Integer.parseInt(dniStr);
+            HuespedData huespedData = new HuespedData();
+            Huesped huesped = huespedData.buscarPordni(dni);
+
+            if (huesped != null) {
+                jtDNI.setText(dniStr);
+                jtNombre.setText(huesped.getNombre());
+                jtApellido.setText(huesped.getApellido());
+                jtEmail.setText(huesped.getCorreo());
+                jtTelefono.setText(String.valueOf(huesped.getTelefono()));
+                jtDireccion.setText(huesped.getDomicilio());
+            } else {
+                JOptionPane.showMessageDialog(jtDNI, "No se encontró ningún huésped con ese DNI");
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(jtDNI, "Ingresa un DNI válido");
+        }
 
     }//GEN-LAST:event_jbBuscarActionPerformed
-    
+
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
         this.dispose();
     }//GEN-LAST:event_jbSalirActionPerformed
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
         int dni = Integer.parseInt(jtDNI.getText());
-        
-        HuespedData hd=new HuespedData();
-        Huesped h = new Huesped();
-        
-       if (jtDNI.getText().isEmpty()) {
-        JOptionPane.showMessageDialog(jtDNI , "Ingresa un numero de DNI "); 
-        }else{
-        hd.eliminarHuesped(dni);
 
-       }
-        
+        HuespedData hd = new HuespedData();
+        Huesped h = new Huesped();
+
+        if (jtDNI.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(jtDNI, "Ingresa un numero de DNI ");
+        } else {
+            hd.eliminarHuesped(dni);
+
+        }
+
     }//GEN-LAST:event_jbEliminarActionPerformed
 
     private void jbCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCrearActionPerformed
-    String dniStr = jtDNI.getText();
-    String emailStr = jtEmail.getText();
-            
-    if (dniStr.isEmpty()) {
-        JOptionPane.showMessageDialog(jtDNI , "Ingresa un numero de DNI valido");
-        return; 
-    }
-      if (!emailStr.contains("@") || emailStr.endsWith(".")) {
-        JOptionPane.showMessageDialog(jtEmail, "Ingresa un correo electrónico válido ");
-        return;
-    }
+        String dniStr = jtDNI.getText();
+        String emailStr = jtEmail.getText();
 
-    
-   try { 
-        int dni = Integer.parseInt(dniStr);
-        HuespedData huespedData =new HuespedData();
-        Huesped huesped = new Huesped();
-        
-        huesped.setDni(Integer.parseInt(dniStr));
-        huesped.setNombre(jtNombre.getText());
-        huesped.setApellido(jtApellido.getText());
-        huesped.setCorreo(jtEmail.getText());
-        huesped.setDomicilio(jtDireccion.getText());
-        huesped.setTelefono(Integer.parseInt(jtTelefono.getText()));
-        
-        huespedData.GuardarHuesped(huesped);
-        
-        JOptionPane.showMessageDialog(null, "Huésped guardado");
-        
-   } catch (NumberFormatException ex) { 
-       JOptionPane.showMessageDialog(jtDNI , "Ingresa un DNI valido");
+        if (dniStr.isEmpty()) {
+            JOptionPane.showMessageDialog(jtDNI, "Ingresa un numero de DNI valido");
+            return;
+        }
+        if (!emailStr.contains("@") || emailStr.endsWith(".")) {
+            JOptionPane.showMessageDialog(jtEmail, "Ingresa un correo electrónico válido ");
+            return;
+        }
+
+        try {
+            int dni = Integer.parseInt(dniStr);
+            HuespedData huespedData = new HuespedData();
+            Huesped huesped = new Huesped();
+
+            huesped.setDni(Integer.parseInt(dniStr));
+            huesped.setNombre(jtNombre.getText());
+            huesped.setApellido(jtApellido.getText());
+            huesped.setCorreo(jtEmail.getText());
+            huesped.setDomicilio(jtDireccion.getText());
+            huesped.setTelefono(Integer.parseInt(jtTelefono.getText()));
+
+            huespedData.GuardarHuesped(huesped);
+
+            JOptionPane.showMessageDialog(null, "Huésped guardado");
+
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(jtDNI, "Ingresa un DNI valido");
         }
     }//GEN-LAST:event_jbCrearActionPerformed
 
     private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
-    String dniStr = jtDNI.getText();
-    
-    if (dniStr.isEmpty()) {
-        JOptionPane.showMessageDialog(jtDNI , "Ingresa un numero de DNI valido");
-        return; 
-    }
-    
-    
-   try { 
-        int dni = Integer.parseInt(dniStr);
-        HuespedData huespedData =new HuespedData();
-        Huesped huesped = new Huesped();
-        
-        huesped.setDni(Integer.parseInt(dniStr));
-        huesped.setNombre(jtNombre.getText());
-        huesped.setApellido(jtApellido.getText());
-        huesped.setCorreo(jtEmail.getText());
-        huesped.setDomicilio(jtDireccion.getText());
-        huesped.setTelefono(Integer.parseInt(jtTelefono.getText()));
-        
-        huespedData.modificarHuesped(huesped);
-        
-        JOptionPane.showMessageDialog(null, "Huésped modificado exitosamente");
-        jtDNI.setText("");
-        jtNombre.setText("");
-        jtApellido.setText("");
-        jtEmail.setText("");
-        jtDireccion.setText("");
-        jtTelefono.setText("");
-   } catch (NumberFormatException ex) { 
-       JOptionPane.showMessageDialog(jtDNI , "Ingresa un DNI valido");
+        String dniStr = jtDNI.getText();
+
+        if (dniStr.isEmpty()) {
+            JOptionPane.showMessageDialog(jtDNI, "Ingresa un numero de DNI valido");
+            return;
         }
-    
+
+        try {
+            int dni = Integer.parseInt(dniStr);
+            HuespedData huespedData = new HuespedData();
+            Huesped huesped = new Huesped();
+
+            huesped.setDni(Integer.parseInt(dniStr));
+            huesped.setNombre(jtNombre.getText());
+            huesped.setApellido(jtApellido.getText());
+            huesped.setCorreo(jtEmail.getText());
+            huesped.setDomicilio(jtDireccion.getText());
+            huesped.setTelefono(Integer.parseInt(jtTelefono.getText()));
+
+            huespedData.modificarHuesped(huesped);
+
+            JOptionPane.showMessageDialog(null, "Huésped modificado exitosamente");
+            jtDNI.setText("");
+            jtNombre.setText("");
+            jtApellido.setText("");
+            jtEmail.setText("");
+            jtDireccion.setText("");
+            jtTelefono.setText("");
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(jtDNI, "Ingresa un DNI valido");
+        }
+
     }//GEN-LAST:event_jbModificarActionPerformed
 
     private void jbLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLimpiarActionPerformed
         jtDNI.setText("");
-        jtNombre.setText("");  
+        jtNombre.setText("");
         jtApellido.setText("");
         jtEmail.setText("");
-        jtTelefono.setText(String.valueOf(""));   
-        jtDireccion.setText("");   
+        jtTelefono.setText(String.valueOf(""));
+        jtDireccion.setText("");
     }//GEN-LAST:event_jbLimpiarActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {

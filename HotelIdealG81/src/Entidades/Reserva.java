@@ -1,43 +1,42 @@
 package Entidades;
 
-
 import java.time.LocalDate;
 
-
 public class Reserva {
-   private int idReserva;
-   private int idHuesped;
-   private int idHabitacion;
-   private LocalDate inicio;
-   private LocalDate fin;
-   private double aPagar;
-   private double pagado;
-   private boolean estado;
-    
-   public Reserva(int idReserva, int idHuesped, int idHabitacion, LocalDate inicio, LocalDate fin, double aPagar, double pagado, boolean estado) {
-       this.idReserva = idReserva;
-       this.idHuesped = idHuesped;
-       this.idHabitacion = idHabitacion;
-       this.inicio = inicio;
-       this.fin = fin;
-       this.aPagar = aPagar;
-       this.pagado = pagado;
-       this.estado = estado;
-}
 
-   public Reserva(int idHuesped, int idHabitacion, LocalDate inicio, LocalDate fin, double aPagar, double pagado, boolean estado) {
-       this.idHuesped = idHuesped;
-       this.idHabitacion = idHabitacion;
-       this.inicio = inicio;
-       this.fin = fin;
-       this.aPagar = aPagar;
-       this.pagado = pagado;
-       this.estado = estado;
-   }
+    private int idReserva;
+    private int idHuesped;
+    private int idHabitacion;
+    private LocalDate inicio;
+    private LocalDate fin;
+    private double aPagar;
+    private double pagado;
+    private boolean estado;
+
+    public Reserva(int idReserva, int idHuesped, int idHabitacion, LocalDate inicio, LocalDate fin, double aPagar, double pagado, boolean estado) {
+        this.idReserva = idReserva;
+        this.idHuesped = idHuesped;
+        this.idHabitacion = idHabitacion;
+        this.inicio = inicio;
+        this.fin = fin;
+        this.aPagar = aPagar;
+        this.pagado = pagado;
+        this.estado = estado;
+    }
+
+    public Reserva(int idHuesped, int idHabitacion, LocalDate inicio, LocalDate fin, double aPagar, double pagado, boolean estado) {
+        this.idHuesped = idHuesped;
+        this.idHabitacion = idHabitacion;
+        this.inicio = inicio;
+        this.fin = fin;
+        this.aPagar = aPagar;
+        this.pagado = pagado;
+        this.estado = estado;
+    }
 
     public Reserva() {
     }
-      
+
     public int getIdReserva() {
         return idReserva;
     }
@@ -101,7 +100,5 @@ public class Reserva {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
-   
-     
 
 }

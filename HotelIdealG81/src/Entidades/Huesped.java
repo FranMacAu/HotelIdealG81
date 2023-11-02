@@ -1,6 +1,7 @@
 package Entidades;
 
 public class Huesped {
+
     private int idHuesped;
     private String nombre;
     private String apellido;
@@ -9,10 +10,9 @@ public class Huesped {
     private String correo;
     private int telefono;
     private boolean estado;
-    
-    
-    public Huesped () { 
-        
+
+    public Huesped() {
+
     }
 
     public Huesped(String nombre, String apellido, int dni, String domicilio, String correo, int telefono, boolean estado) {
@@ -24,7 +24,7 @@ public class Huesped {
         this.telefono = telefono;
         this.estado = estado;
     }
-    
+
     public Huesped(int idHuesped, String nombre, String apellido, int dni, String domicilio, String correo, int telefono, boolean estado) {
         this.idHuesped = idHuesped;
         this.nombre = nombre;
@@ -35,15 +35,15 @@ public class Huesped {
         this.telefono = telefono;
         this.estado = estado;
     }
-    
-    public void setIdHuesped(int idHuesped){
+
+    public void setIdHuesped(int idHuesped) {
         this.idHuesped = idHuesped;
     }
-    
-    public int getIdHuesped(){
+
+    public int getIdHuesped() {
         return idHuesped;
     }
-    
+
     public String getNombre() {
         return nombre;
     }
@@ -95,12 +95,12 @@ public class Huesped {
     public void setHuesped(int aInt) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    public void setEstado(boolean estado){
-        this.estado=estado;
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
     }
-    
-    public boolean isActivo(){
+
+    public boolean isActivo() {
         return estado;
     }
 
@@ -115,5 +115,5 @@ public class Huesped {
     public int getId() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }
