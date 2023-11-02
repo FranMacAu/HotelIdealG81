@@ -236,7 +236,28 @@ public class HabitacionesView extends javax.swing.JFrame {
  }    }//GEN-LAST:event_jbEliminarActionPerformed
 
     private void jtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtBuscarActionPerformed
-        // TODO add your handling code here:
+        String nombreStr = jtfNombreHab.getText();
+    
+    if (nombreStr.isEmpty()) {
+        JOptionPane.showMessageDialog(jtfNombreHab , "Ingresa un numero de DNi valido");
+          
+        HabitacionData thd  =new HabitacionData();
+        
+        Habitacion th = thd.buscarHabitacionPorNombre(nombreStr);
+        
+         try { 
+       int nombre = Integer.parseInt(nombreStr);
+        if (th != null ) {
+        jtfNombreHab.setText(th.getNombre());
+        jtfPisoHab.setText(String.valueOf(th.getPiso()));
+        //jcbTipoHab.set ;          //Según el registro selecciona la opcion correspondiente del combobox
+        }  else {
+            JOptionPane.showMessageDialog(jtfNombreHab , "No se encontro ninguna habitacion con ese numero");
+        }
+   } catch (NumberFormatException ex) { 
+       JOptionPane.showMessageDialog(jtfNombreHab , "Ingresa un Numero valido");
+     }
+   }
     }//GEN-LAST:event_jtBuscarActionPerformed
 
     private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
