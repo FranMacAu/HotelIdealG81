@@ -128,10 +128,6 @@ public class HabitacionesView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jcbTipoHab, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jbEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jbModificar)
@@ -146,7 +142,10 @@ public class HabitacionesView extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jtBuscar)
                             .addComponent(jtLimpiar))
-                        .addGap(34, 34, 34))))
+                        .addGap(34, 34, 34))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jcbTipoHab, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -252,7 +251,6 @@ public class HabitacionesView extends javax.swing.JFrame {
                 if (th != null) {
                     jtfNombreHab.setText(th.getNombre());
                     jtfPisoHab.setText(String.valueOf(th.getPiso()));
-                    //jcbTipoHab.set ;          //Según el registro selecciona la opcion correspondiente del combobox
                 } else {
                     JOptionPane.showMessageDialog(jtfNombreHab, "No se encontro ninguna habitacion con ese numero");
                 }
@@ -272,11 +270,14 @@ public class HabitacionesView extends javax.swing.JFrame {
         try {
             HabitacionData hd = new HabitacionData();
             Habitacion habitacion = hd.buscarHabitacionPorNombre(nombreStr);
+            
+            TipoHabData thd = new TipoHabData();
+            TipoHabitacion tipoHabitacion = thd.buscarPorNombre((String)jcbTipoHab.getSelectedItem());
 
             if (habitacion != null) {
                 habitacion.setNombre(jtfNombreHab.getText());
                 habitacion.setPiso(Integer.parseInt(jtfPisoHab.getText()));
-                habitacion.setTipoHab(jcbTipoHab.getSelectedItem().toString());
+                habitacion.setTipoHab(tipoHabitacion.getCodigo());
 
                 hd.modificarHabitacion(habitacion);
 

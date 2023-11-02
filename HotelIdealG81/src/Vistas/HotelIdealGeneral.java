@@ -159,7 +159,7 @@ public class HotelIdealGeneral extends javax.swing.JFrame {
         // TODO add your handling code here:
         jDesktopPane1.removeAll();
         jDesktopPane1.repaint();
-        TipoHabitación TipHab = new TipoHabitación();
+        TipoHabitaciónView TipHab = new TipoHabitaciónView();
         TipHab.setVisible(true);
         jDesktopPane1.add(TipHab);
     }//GEN-LAST:event_jMITipoHabActionPerformed
