@@ -108,6 +108,7 @@ public class ReservaView extends javax.swing.JFrame {
             }
         });
 
+        jcbNumHab.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "3", "", "5", "7", "8 10", "33", "44", "65", "75" }));
         jcbNumHab.setNextFocusableComponent(jdcIngreso);
         jcbNumHab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
