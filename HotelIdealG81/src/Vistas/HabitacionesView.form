@@ -239,6 +239,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="LIMPIAR"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtLimpiarActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

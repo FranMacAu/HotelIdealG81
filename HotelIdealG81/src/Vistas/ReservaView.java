@@ -180,11 +180,6 @@ public class ReservaView extends javax.swing.JFrame {
 
         jcbTipoCama.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Simple", "Queen", "King" }));
         jcbTipoCama.setNextFocusableComponent(jdcIngreso);
-        jcbTipoCama.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcbTipoCamaActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -493,13 +488,8 @@ public class ReservaView extends javax.swing.JFrame {
     }//GEN-LAST:event_jbCalcularActionPerformed
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
+                this.dispose();
     }//GEN-LAST:event_jbSalirActionPerformed
-
-    private void jcbTipoCamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbTipoCamaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jcbTipoCamaActionPerformed
 
     private void jcbTipoHabActionPerformed(java.awt.event.ActionEvent evt) {
         TipoHabData thd = new TipoHabData();
@@ -612,5 +602,5 @@ public class ReservaView extends javax.swing.JFrame {
         reservaData.eliminarReserva(idReserva);
 
     }
-    /* tratamos de arreglar*/
+  
 }

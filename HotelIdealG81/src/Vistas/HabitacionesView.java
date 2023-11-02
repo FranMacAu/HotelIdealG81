@@ -104,6 +104,11 @@ public class HabitacionesView extends javax.swing.JFrame {
 
         jtLimpiar.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jtLimpiar.setText("LIMPIAR");
+        jtLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtLimpiarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -282,9 +287,16 @@ public class HabitacionesView extends javax.swing.JFrame {
             }
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(jtfNombreHab, "Ingresa un numero valido");
-
+        }
     }//GEN-LAST:event_jbModificarActionPerformed
-    }
+
+
+    private void jtLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtLimpiarActionPerformed
+        jtfNombreHab.setText("");
+        jtfPisoHab.setText("");
+        jcbTipoHab.setSelectedIndex(0);
+
+    }//GEN-LAST:event_jtLimpiarActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -312,11 +324,15 @@ public class HabitacionesView extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new HabitacionesView().setVisible(true);
-            }
-        });
-    }
+        public void run() {
+            new HabitacionesView().setVisible(true);
+        }
+    });
+}
+            
+        
+        
+        
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBSalir;
@@ -333,4 +349,4 @@ public class HabitacionesView extends javax.swing.JFrame {
     private javax.swing.JTextField jtfNombreHab;
     private javax.swing.JTextField jtfPisoHab;
     // End of variables declaration//GEN-END:variables
-}
+        }
