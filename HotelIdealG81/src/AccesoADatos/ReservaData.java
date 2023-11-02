@@ -53,7 +53,7 @@
         }
 
         public void modificarReserva(Reserva res) {
-            String sql = "UPDATE reservaciones SET idhuesped == ?, idhabitacion == ?, incio == ?, fin == ?, apagar ==? , pagado == ? , estado= ?"
+            String sql = "UPDATE reservas SET idhuesped == ?, idhabitacion == ?, incio == ?, fin == ?, apagar ==? , pagado == ? , estado= ?"
                     + "WHERE  idReserva= ?";
 
             try {
@@ -105,7 +105,7 @@
             LocalDate fin=res.getFin();
             double estadia = ChronoUnit.DAYS.between(ini, fin);
 
-            Habitacion hab= hd.buscarHabitacion(res.getIdHabitacion());
+            Habitacion hab= hd.buscarHabitacion(String.valueOf(res.getIdHabitacion()));
             int idTipoHab= hab.getTipoHab();
             TipoHabitacion thab= thd.buscarTipoHab(idTipoHab);
             double precioNoche=thab.getPrecio();
@@ -153,7 +153,7 @@
             
             Reserva baja = buscarReservaPorHesped(hue);
             HabitacionData hab=new HabitacionData();
-            Habitacion libre = hab.buscarHabitacion(baja.getIdHabitacion());
+            Habitacion libre = hab.buscarHabitacion(String.valueOf(baja.getIdHabitacion()));
             
             libre.setEstado(false);
             baja.setEstado(false);

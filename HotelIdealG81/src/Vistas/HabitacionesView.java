@@ -31,6 +31,8 @@ public class HabitacionesView extends javax.swing.JFrame {
         jtfPisoHab = new javax.swing.JTextField();
         jcbTipoHab = new javax.swing.JComboBox<>();
         jBSalir = new javax.swing.JButton();
+        jtBuscar = new javax.swing.JButton();
+        jtLimpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,6 +70,11 @@ public class HabitacionesView extends javax.swing.JFrame {
         jbModificar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jbModificar.setText("MODIFICAR");
         jbModificar.setNextFocusableComponent(jtfNombreHab);
+        jbModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbModificarActionPerformed(evt);
+            }
+        });
 
         jtfNombreHab.setNextFocusableComponent(jtfPisoHab);
 
@@ -78,7 +85,7 @@ public class HabitacionesView extends javax.swing.JFrame {
             }
         });
 
-        jcbTipoHab.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Simple", "Doble", "Triple", "Suite" }));
+        jcbTipoHab.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Simple", "Doble", "Triple", "Suite" }));
 
         jBSalir.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jBSalir.setText("SALIR");
@@ -87,6 +94,17 @@ public class HabitacionesView extends javax.swing.JFrame {
                 jBSalirActionPerformed(evt);
             }
         });
+
+        jtBuscar.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jtBuscar.setText("BUSCAR");
+        jtBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtBuscarActionPerformed(evt);
+            }
+        });
+
+        jtLimpiar.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jtLimpiar.setText("LIMPIAR");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -106,18 +124,22 @@ public class HabitacionesView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jcbTipoHab, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jtfNombreHab)
-                            .addComponent(jtfPisoHab, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jbEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jbModificar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(jBSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jcbTipoHab, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jtfNombreHab)
+                            .addComponent(jtfPisoHab, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jtBuscar)
+                            .addComponent(jtLimpiar))
+                        .addGap(34, 34, 34))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,11 +149,13 @@ public class HabitacionesView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jtfNombreHab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtfNombreHab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtBuscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jtfPisoHab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtfPisoHab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtLimpiar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -158,12 +182,13 @@ public class HabitacionesView extends javax.swing.JFrame {
     }//GEN-LAST:event_jBSalirActionPerformed
 
     private void jbCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCrearActionPerformed
-         String nombreHabitacion = jtfNombreHab.getText();
-           String pisoHabitacion = jtfPisoHab.getText();
-           String tipoHabitacion = jcbTipoHab.getSelectedItem().toString();
+        String nombreHabitacion = jtfNombreHab.getText();
+        String pisoHabitacion = jtfPisoHab.getText();
+        String tipoHabitacion = jcbTipoHab.getSelectedItem().toString();
            
-           HabitacionData hd = new HabitacionData (); 
-           Habitacion h = new Habitacion(); 
+        HabitacionData hd = new HabitacionData (); 
+        Habitacion h = new Habitacion(); 
+        
         if (nombreHabitacion.isEmpty() || pisoHabitacion.isEmpty() || tipoHabitacion.isEmpty()) {
         JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos.");
                     
@@ -180,27 +205,44 @@ public class HabitacionesView extends javax.swing.JFrame {
     }//GEN-LAST:event_jbCrearActionPerformed
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
-     String nombreStr = jtfNombreHab.getText();
-          
-          if (nombreStr.isEmpty()) {
-        JOptionPane.showMessageDialog(jtfNombreHab, "Ingresa un numero de habitacion valido");
-        try {
-              String nombre = (nombreStr);
-              HabitacionData habitacionData = new HabitacionData();
-              Habitacion habitacion = habitacionData.buscarHabitacion(nombre);
-              if (habitacion != null) {                
-              String nombre = habitacion.getNombre();
-              if (nombre = nombre) {
-              eliminarHabitacion(Integer.parseInt(nombre)); 
-                JOptionPane.showMessageDialog(jtfNombreHab, "Habitacion eliminada con éxito");
+        String nombreStr = jtfNombreHab.getText();     
+        
+        if (nombreStr.isEmpty()) {
+        JOptionPane.showMessageDialog(jtfNombreHab, "Ingresa un nombre de habitación válido");
+    } else {
+        HabitacionData thd = new HabitacionData();
+        Habitacion th = thd.buscarHabitacion(nombreStr);
+
+        if (th != null) {
+            int confirmacion = JOptionPane.showConfirmDialog(jtfNombreHab, "¿Estás seguro de que deseas eliminar esta habitación?", "Confirmación", JOptionPane.YES_NO_OPTION);
+
+            if (confirmacion == JOptionPane.YES_OPTION) {                
+               thd.eliminarHabitacion(th.getNombre());               
+                    JOptionPane.showMessageDialog(jtfNombreHab, "Habitación eliminada con éxito.");
+                    jtfNombreHab.setText("");
+                    jtfPisoHab.setText("");
+                    jcbTipoHab.setSelectedIndex(0);
+               
             
         } else {
-            JOptionPane.showMessageDialog(jtfNombreHab, "No se encontró ninguna habitacion con ese numero ");
+            JOptionPane.showMessageDialog(jtfNombreHab, "No se encontró una habitación con ese nombre.");
         }
-    } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(jtfNombreHab, "Ingresa un numero válido");
+    }
+
+        
+        
+        
+        
  }    }//GEN-LAST:event_jbEliminarActionPerformed
- }}
+
+    private void jtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtBuscarActionPerformed
+
+    private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
+        
+    }//GEN-LAST:event_jbModificarActionPerformed
+
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -244,9 +286,9 @@ public class HabitacionesView extends javax.swing.JFrame {
     private javax.swing.JButton jbEliminar;
     private javax.swing.JButton jbModificar;
     private javax.swing.JComboBox<String> jcbTipoHab;
+    private javax.swing.JButton jtBuscar;
+    private javax.swing.JButton jtLimpiar;
     private javax.swing.JTextField jtfNombreHab;
     private javax.swing.JTextField jtfPisoHab;
     // End of variables declaration//GEN-END:variables
 }
-
-
