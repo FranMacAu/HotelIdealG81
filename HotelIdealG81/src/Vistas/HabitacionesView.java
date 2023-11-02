@@ -2,6 +2,7 @@ package Vistas;
 
 import AccesoADatos.HabitacionData;
 import AccesoADatos.HuespedData;
+import AccesoADatos.TipoHabData;
 import Entidades.Habitacion;
 import Entidades.Huesped;
 import java.util.HashSet;
@@ -43,7 +44,7 @@ public class HabitacionesView extends javax.swing.JFrame {
 
         jLabel3.setText("Piso:");
 
-        jLabel4.setText("Tipo Habitación:");
+        jLabel4.setText("Tipo Habitacion:");
 
         jbCrear.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jbCrear.setText("CREAR");
@@ -264,9 +265,33 @@ public class HabitacionesView extends javax.swing.JFrame {
     }//GEN-LAST:event_jtBuscarActionPerformed
 
     private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
+         String nombreStr = jtfNombreHab.getText();
+        if (nombreStr.isEmpty()) {
+            JOptionPane.showMessageDialog(jtfNombreHab, "Ingresa un numero de habitacion invalido");
+            return;
+        }
+
+        try {
+         HabitacionData hd  =new HabitacionData();        
+         Habitacion habitacion = hd.buscarHabitacionPorNombre(nombreStr);
+         
+          if (habitacion != null) {
+            habitacion.setNombre(jtfNombreHab.getText());            
+            habitacion.setPiso(Integer.parseInt(jtfPisoHab.getText()));
+            habitacion.setTipoHab(jcbTipoHab.getSelectedItem().toString());
+            
+            hd.modificarHabitacion(habitacion);
+
+                JOptionPane.showMessageDialog(null, "Tipo de habitacion modificado exitosamente");
+                jtfNombreHab.setText("");
+                jtfPisoHab.setText("");
+                jcbTipoHab.setSelectedIndex(0);
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(jtfNombreHab, "Ingresa un numero valido");
         
     }//GEN-LAST:event_jbModificarActionPerformed
-
+    }
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

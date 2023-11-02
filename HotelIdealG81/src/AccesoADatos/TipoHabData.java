@@ -193,7 +193,31 @@ public class TipoHabData {
 
 
 
+public void modificarTipoHabitacion(TipoHabitacion tip) {
+    String sql = "UPDATE tipohabitacion SET nombre = ?, capacidad = ?, camas = ?, tipoCamas = ?, precio = ? WHERE codigo = ?";
 
+    try {
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, tip.getNombre());
+        ps.setInt(2, tip.getCapacidad());
+        ps.setInt(3, tip.getCantidadCamas());
+        ps.setString(4, tip.getTipoCama());
+        ps.setDouble(5, tip.getPrecio());
+        ps.setInt(6, tip.getCodigo()); // Asumiendo que codigo es el identificador único de la habitación
+
+        int rowsAffected = ps.executeUpdate();
+
+        if (rowsAffected > 0) {
+            JOptionPane.showMessageDialog(null, "Tipo de habitación modificado");
+        } else {
+            JOptionPane.showMessageDialog(null, "No se encontró un tipo de habitación para modificar");
+        }
+
+        ps.close();
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "Error al acceder a la tabla TipoHabitaciones");
+    }
+}
 
     
     

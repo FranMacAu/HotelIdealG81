@@ -1,19 +1,16 @@
 package Vistas;
 
-
+import AccesoADatos.HabitacionData;
+import AccesoADatos.HuespedData;
 import javax.swing.JOptionPane;
 import AccesoADatos.TipoHabData;
-import Entidades.TipoHabitacion; 
+import Entidades.Habitacion;
+import Entidades.Huesped;
+import Entidades.TipoHabitacion;
 
-
-        
-        
-        
 public class TipoHabitación extends javax.swing.JFrame {
 
 
-
-   
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -63,6 +60,11 @@ public class TipoHabitación extends javax.swing.JFrame {
         jbModificar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jbModificar.setText("MODIFICAR");
         jbModificar.setNextFocusableComponent(jbEliminar);
+        jbModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbModificarActionPerformed(evt);
+            }
+        });
 
         jbEliminar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jbEliminar.setText("ELIMINAR");
@@ -70,12 +72,6 @@ public class TipoHabitación extends javax.swing.JFrame {
         jbEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbEliminarActionPerformed(evt);
-            }
-        });
-
-        jtNombreHab.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtNombreHabActionPerformed(evt);
             }
         });
 
@@ -187,81 +183,130 @@ public class TipoHabitación extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
-    String nombreHabitacion = jtNombreHab.getText();
-    
-    
+        String nombreHabitacion = jtNombreHab.getText();
 
-    if (nombreHabitacion.isEmpty()) {
-        JOptionPane.showMessageDialog(jtNombreHab, "Ingresa un nombre de habitación válido");
-    } else {
-        TipoHabData thd = new TipoHabData();
-        TipoHabitacion th = thd.buscarPorNombre(nombreHabitacion);
+        if (nombreHabitacion.isEmpty()) {
+            JOptionPane.showMessageDialog(jtNombreHab, "Ingresa un nombre de habitación válido");
+        } else {
+            TipoHabData thd = new TipoHabData();
+            TipoHabitacion th = thd.buscarPorNombre(nombreHabitacion);
 
-        if (th != null) {
-            int confirmacion = JOptionPane.showConfirmDialog(jtNombreHab, "¿Estás seguro de que deseas eliminar esta habitación?", "Confirmación", JOptionPane.YES_NO_OPTION);
+            if (th != null) {
+                int confirmacion = JOptionPane.showConfirmDialog(jtNombreHab, "¿Estás seguro de que deseas eliminar esta habitación?", "Confirmación", JOptionPane.YES_NO_OPTION);
 
-            if (confirmacion == JOptionPane.YES_OPTION) {                
-               thd.eliminarTipoHabitacion(th.getNombre());               
+                if (confirmacion == JOptionPane.YES_OPTION) {
+                    thd.eliminarTipoHabitacion(th.getNombre());
                     JOptionPane.showMessageDialog(jtNombreHab, "Habitación eliminada con éxito.");
                     jtNombreHab.setText("");
                     jtPrecio.setText("");
                     jtCapacidad.setText("");
                     jtCamas.setText("");
                     jctc.setSelectedIndex(0);
-               
-            
-        } else {
-            JOptionPane.showMessageDialog(jtNombreHab, "No se encontró una habitación con ese nombre.");
-        }
-    }
 
- 
-    
+                } else {
+                    JOptionPane.showMessageDialog(jtNombreHab, "No se encontró una habitación con ese nombre.");
+                }
+            }
+
+
     }//GEN-LAST:event_jbEliminarActionPerformed
     }
-    
-    
+
+
     private void JBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBuscarActionPerformed
-    String nombreStr = jtNombreHab.getText();
-    
-    if (nombreStr.isEmpty()) {
-        JOptionPane.showMessageDialog(jtNombreHab , "Ingresa un numero de DNi valido");
-          
-        TipoHabData thd  =new TipoHabData();
-        
-        TipoHabitacion th = thd.buscarPorNombre(nombreStr);
-        
-         try { 
-       int nombre = Integer.parseInt(nombreStr);
-        if (th != null ) {
-        jtNombreHab.setText(th.getNombre());
-        jtPrecio.setText(String.valueOf(th.getPrecio()));
-        jtPrecio.setText(String.valueOf(th.getPrecio()));
-        }  else {
-            JOptionPane.showMessageDialog(jtNombreHab , "No se encontro ninguna habitacion con ese numero");
+        String nombreStr = jtNombreHab.getText();
+
+        if (nombreStr.isEmpty()) {
+            JOptionPane.showMessageDialog(jtNombreHab, "Ingresa un numero de DNi valido");
+
+            TipoHabData thd = new TipoHabData();
+
+            TipoHabitacion th = thd.buscarPorNombre(nombreStr);
+
+            try {
+                int nombre = Integer.parseInt(nombreStr);
+                if (th != null) {
+                    jtNombreHab.setText(th.getNombre());
+                    jtPrecio.setText(String.valueOf(th.getPrecio()));
+                    jtPrecio.setText(String.valueOf(th.getPrecio()));
+                } else {
+                    JOptionPane.showMessageDialog(jtNombreHab, "No se encontro ninguna habitacion con ese numero");
+                }
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(jtNombreHab, "Ingresa un Numero valido");
+            }
         }
-   } catch (NumberFormatException ex) { 
-       JOptionPane.showMessageDialog(jtNombreHab , "Ingresa un Numero valido");
-     }
-   }
         }//GEN-LAST:event_JBuscarActionPerformed
 
     private void jLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jLimpiarActionPerformed
-    jtNombreHab.setText("");
-    jtPrecio.setText("");
-    jtCapacidad.setText("");
-    jtCamas.setText("");
-    jctc.setSelectedIndex(0);
+        jtNombreHab.setText("");
+        jtPrecio.setText("");
+        jtCapacidad.setText("");
+        jtCamas.setText("");
+        jctc.setSelectedIndex(0);
 
     }//GEN-LAST:event_jLimpiarActionPerformed
 
     private void jbCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCrearActionPerformed
-        
+        String nombreHabitacion = jtNombreHab.getText();
+        int capacidad = Integer.parseInt(jtCapacidad.getText());
+        int camas = Integer.parseInt(jtCamas.getText());
+        String tipoCama = jctc.getSelectedItem().toString();
+        double precio = Double.parseDouble(jtPrecio.getText());
+
+        TipoHabData thd = new TipoHabData();
+        TipoHabitacion th = new TipoHabitacion();
+
+        if (nombreHabitacion.isEmpty() || tipoCama.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, complete los campos Nombre y Tipo de Cama.");
+            return;
+        }
+        th.setNombre(nombreHabitacion);
+        th.setCapacidad(capacidad);
+        th.setCantidadCamas(camas);
+        th.setTipoCama(tipoCama);
+        th.setPrecio(precio);
+
+        jtNombreHab.setText("");
+        jtCapacidad.setText("");
+        jtCamas.setText("");
+        jctc.setSelectedIndex(0);
+        jtPrecio.setText("");
+
     }//GEN-LAST:event_jbCrearActionPerformed
 
-    private void jtNombreHabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtNombreHabActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtNombreHabActionPerformed
+    private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
+        String nombreStr = jtNombreHab.getText();
+
+        if (nombreStr.isEmpty()) {
+            JOptionPane.showMessageDialog(jtNombreHab, "Ingresa un numero de habitacion invalido");
+            return;
+        }
+
+        try {
+            TipoHabData tipoHabData = new TipoHabData();
+            TipoHabitacion tipoHab = tipoHabData.buscarPorNombre(nombreStr);
+
+            if (tipoHab != null) {
+                tipoHab.setCapacidad(Integer.parseInt(jtCapacidad.getText()));
+                tipoHab.setCantidadCamas(Integer.parseInt(jtCamas.getText()));
+                tipoHab.setTipoCama(jctc.getSelectedItem().toString());
+                tipoHab.setPrecio(Double.parseDouble(jtPrecio.getText()));
+
+                tipoHabData.modificarTipoHabitacion(tipoHab);
+
+                JOptionPane.showMessageDialog(null, "Tipo de habitacion modificado exitosamente");
+                jtNombreHab.setText("");
+                jtCapacidad.setText("");
+                jtCamas.setText("");
+                jctc.setSelectedIndex(0);
+                jtPrecio.setText("");
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(jtNombreHab, "Ingresa un numero valido");
+        }
+
+    }//GEN-LAST:event_jbModificarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -295,8 +340,8 @@ public class TipoHabitación extends javax.swing.JFrame {
             public void run() {
                 new TipoHabitación().setVisible(true);
             }
-});
-}
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBuscar;
@@ -316,9 +361,5 @@ public class TipoHabitación extends javax.swing.JFrame {
     private javax.swing.JTextField jtNombreHab;
     private javax.swing.JTextField jtPrecio;
     // End of variables declaration//GEN-END:variables
-
-
-
-
 
 }

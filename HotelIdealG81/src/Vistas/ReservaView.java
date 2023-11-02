@@ -416,7 +416,7 @@ public class ReservaView extends javax.swing.JFrame {
     private void jbBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBusquedaActionPerformed
     String dniStr = jtDNI.getText();
     
-        if (dniStr.isEmpty() && (!dniStr.contains("@") && dniStr.endsWith(".")) ) {
+        if (dniStr.isEmpty()) {
             JOptionPane.showMessageDialog(jtDNI , "Ingresa un numero de DNi valido");
             return; 
     }

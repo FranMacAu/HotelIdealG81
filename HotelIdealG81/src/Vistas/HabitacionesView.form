@@ -122,7 +122,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Tipo Habitaci&#xf3;n:"/>
+        <Property name="text" type="java.lang.String" value="Tipo Habitacion:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jbCrear">

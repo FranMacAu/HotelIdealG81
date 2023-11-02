@@ -191,6 +191,9 @@
           <ComponentRef name="jbEliminar"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbModificarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jbEliminar">
       <Properties>
@@ -207,9 +210,6 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jtNombreHab">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtNombreHabActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jtPrecio">
       <Properties>
