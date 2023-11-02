@@ -166,17 +166,17 @@ public class HabitacionesView extends javax.swing.JFrame {
            Habitacion h = new Habitacion(); 
         if (nombreHabitacion.isEmpty() || pisoHabitacion.isEmpty() || tipoHabitacion.isEmpty()) {
         JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos.");
-        return;
+                    
+         h.setNombre(nombreHabitacion);
+         h.setPiso(Integer.parseInt(pisoHabitacion));
+         h.setTipoHab(Integer.parseInt(tipoHabitacion));
+         JOptionPane.showMessageDialog(this, "Habitación creada exitosamente.");
+         jtfNombreHab.setText("");
+         jtfPisoHab.setText("");
+         jcbTipoHab.setSelectedIndex(0);
+          
         
-    }
-        jtfNombreHab.setText("");
-     jtfPisoHab.setText("");
-     jcbTipoHab.setSelectedIndex(0);
-          JOptionPane.showMessageDialog(this, "Habitación creada exitosamente.");
-     
-    h.setNombre(nombreHabitacion);
-    h.setPiso(pisoHabitacion);
-    h.setTipoHab(tipoHabitacion);
+        }
     }//GEN-LAST:event_jbCrearActionPerformed
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
@@ -184,26 +184,23 @@ public class HabitacionesView extends javax.swing.JFrame {
           
           if (nombreStr.isEmpty()) {
         JOptionPane.showMessageDialog(jtfNombreHab, "Ingresa un numero de habitacion valido");
-        return; 
-    }
-         try {
-              
+        try {
+              String nombre = (nombreStr);
               HabitacionData habitacionData = new HabitacionData();
-              Habitacion habitacion = habitacionData.buscarPornombre(nombre);
+              Habitacion habitacion = habitacionData.buscarHabitacion(nombre);
               if (habitacion != null) {                
-              int idHabitacion = habitacion.getIdHabitacion();
-              if (idHabitacion > 0) {
-              eliminarHabitacion(String nombre); 
+              String nombre = habitacion.getNombre();
+              if (nombre = nombre) {
+              eliminarHabitacion(Integer.parseInt(nombre)); 
                 JOptionPane.showMessageDialog(jtfNombreHab, "Habitacion eliminada con éxito");
-            } else {
             
         } else {
             JOptionPane.showMessageDialog(jtfNombreHab, "No se encontró ninguna habitacion con ese numero ");
         }
     } catch (NumberFormatException e) {
         JOptionPane.showMessageDialog(jtfNombreHab, "Ingresa un numero válido");
-    }    }//GEN-LAST:event_jbEliminarActionPerformed
-    }
+ }    }//GEN-LAST:event_jbEliminarActionPerformed
+ }}
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

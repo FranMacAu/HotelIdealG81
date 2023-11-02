@@ -76,7 +76,7 @@ public class HabitacionData {
     }
     
     public void eliminarHabitacion(String nombre){ 
-        String sql="UPDATE habitaciones SET estado=0 WHERE idHabitacion= ?";
+        String sql="UPDATE habitaciones SET estado=0 WHERE nombre= ?";
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -96,13 +96,13 @@ public class HabitacionData {
     
     
     
-    public Habitacion buscarHabitacion(int id){
-        String sql="SELECT idHabitacion, nombre, piso, tipoHabitacion, estado FROM habitaciones WHERE idHabitacion= ? AND estado=1";
+    public Habitacion buscarHabitacion(String nombre){
+        String sql="SELECT idHabitacion, nombre, piso, tipoHabitacion, estado FROM habitaciones WHERE nombre = ? AND estado=1";
         Habitacion hab=null;
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, id);
+            ps.setInt(1, Integer.parseInt(nombre));
             ResultSet rs=ps.executeQuery();
             if (rs.next()){
                 
@@ -114,7 +114,7 @@ public class HabitacionData {
                 hab.setEstado(true);
                 
             }else{
-                JOptionPane.showMessageDialog(null, "No existe una habitación asociada al id ingresado");
+                JOptionPane.showMessageDialog(null, "No existe una habitación asociada al numero ingresado");
             }
             ps.close();
         
