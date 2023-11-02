@@ -108,7 +108,7 @@ public class ReservaView extends javax.swing.JFrame {
             }
         });
 
-        jcbNumHab.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "3", "", "5", "7", "8 10", "33", "44", "65", "75" }));
+        jcbNumHab.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "3", "5", "7", "8", "10", "33", "44", "65", "75" }));
         jcbNumHab.setNextFocusableComponent(jdcIngreso);
         jcbNumHab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -370,17 +370,17 @@ public class ReservaView extends javax.swing.JFrame {
 
 
     private void jbReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbReservarActionPerformed
-        Huesped huesped = obtenerHuesped();
-        Habitacion habitacion = obtenerHabitacion();
+   HuespedData hd = new HuespedData();
+   Huesped huesped = hd.buscarPordni(jtDNI.getText());
+   HabitacionData hs = new HabitacionData();
+   Habitacion habitacion = hs.buscarHabitacion(jcbNumHab.getText());
 
-        if (huesped == null || habitacion == null) {
-            JOptionPane.showMessageDialog(null, "Selecciona un huésped y una habitación válidos.");
-            
-        }else{
-        Reserva reserva = new Reserva();
-        reserva.setIdHuesped(huesped.getIdHuesped());
-        reserva.setIdHabitacion(habitacion.getIdHabitacion());
-         String fechaInicioStr = JOptionPane.showInputDialog(null, "Ingresa la fecha de inicio de la reserva (YYYY-MM-DD):");
+    if (huesped == null || habitacion == null) {
+        JOptionPane.showMessageDialog(null, "Selecciona un huésped y una habitación válidos.");
+        return;
+    }
+
+    String fechaInicioStr = JOptionPane.showInputDialog(null, "Ingresa la fecha de inicio de la reserva (YYYY-MM-DD):");
 
     if (fechaInicioStr == null || fechaInicioStr.isEmpty()) {
         JOptionPane.showMessageDialog(null, "La fecha de inicio es requerida.");
@@ -403,15 +403,17 @@ public class ReservaView extends javax.swing.JFrame {
         return;
     }
 
-        
+    Reserva reserva = new Reserva();
+    reserva.setIdHuesped(huesped.getId());
+    reserva.setIdHabitacion(habitacion.getId());
+    reserva.setInicio(fechaInicio);
+    reserva.setFin(fechaFinal);
 
-        ReservaData reservaData = new ReservaData();
-        reservaData.GuardarReserva(reserva);             
-        JOptionPane.showMessageDialog(null, "Reserva creada exitosamente.");
-        reserva.setInicio(fechaInicio);
-        reserva.setFin(fechaFinal);
-        
-    }
+    GuardarReserva(reserva);
+
+    JOptionPane.showMessageDialog(null, "Reserva creada exitosamente.");
+
+
     
     }//GEN-LAST:event_jbReservarActionPerformed
 

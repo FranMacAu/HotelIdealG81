@@ -35,8 +35,8 @@ public class ReservaData {
             ps.setDouble(5, reserva.getaPagar());
             ps.setDouble(6, calcularEstadia(reserva));
             ps.setBoolean(7, reserva.isEstado());
-
-            ps.executeUpdate();
+            
+            int filas = ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
 
             if (rs.next()) {
