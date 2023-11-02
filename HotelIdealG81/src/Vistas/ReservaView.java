@@ -90,11 +90,6 @@ public class ReservaView extends javax.swing.JFrame {
         jtApellido.setNextFocusableComponent(jtDomicilio);
 
         jtDNI.setNextFocusableComponent(jbBusqueda);
-        jtDNI.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtDNIActionPerformed(evt);
-            }
-        });
 
         jtDomicilio.setNextFocusableComponent(jtEmail);
 
@@ -380,10 +375,6 @@ public class ReservaView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jtDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtDNIActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtDNIActionPerformed
 
     
     
