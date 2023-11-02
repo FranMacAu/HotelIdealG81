@@ -277,12 +277,17 @@ public class HuespedView extends javax.swing.JFrame {
 
     private void jbCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCrearActionPerformed
     String dniStr = jtDNI.getText();
-    
+    String emailStr = jtEmail.getText();
+            
     if (dniStr.isEmpty()) {
         JOptionPane.showMessageDialog(jtDNI , "Ingresa un numero de DNI valido");
         return; 
     }
-    
+      if (!emailStr.contains("@") || emailStr.endsWith(".")) {
+        JOptionPane.showMessageDialog(jtEmail, "Ingresa un correo electrónico válido ");
+        return;
+    }
+
     
    try { 
         int dni = Integer.parseInt(dniStr);
@@ -328,8 +333,13 @@ public class HuespedView extends javax.swing.JFrame {
         
         huespedData.modificarHuesped(huesped);
         
-        JOptionPane.showMessageDialog(null, "Huésped modificado");
-        
+        JOptionPane.showMessageDialog(null, "Huésped modificado exitosamente");
+        jtDNI.setText("");
+        jtNombre.setText("");
+        jtApellido.setText("");
+        jtEmail.setText("");
+        jtDireccion.setText("");
+        jtTelefono.setText("");
    } catch (NumberFormatException ex) { 
        JOptionPane.showMessageDialog(jtDNI , "Ingresa un DNI valido");
         }
