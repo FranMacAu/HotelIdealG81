@@ -46,7 +46,7 @@ public class ReservaData {
             }
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla de reserva");
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla de reserva"+ex);
 
         }
 

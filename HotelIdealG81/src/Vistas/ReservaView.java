@@ -153,11 +153,6 @@ public class ReservaView extends javax.swing.JFrame {
         jbReservar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jbReservar.setText("HACER RESERVA");
         jbReservar.setNextFocusableComponent(jbSalir);
-        jbReservar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbReservarActionPerformed(evt);
-            }
-        });
 
         jbCalcular.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jbCalcular.setText("CALCULAR");
@@ -368,55 +363,7 @@ public class ReservaView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-
-    private void jbReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbReservarActionPerformed
-   HuespedData hd = new HuespedData();
-   Huesped huesped = hd.buscarPordni(jtDNI.getText());
-   HabitacionData hs = new HabitacionData();
-   Habitacion habitacion = hs.buscarHabitacion(jcbNumHab.getText());
-
-    if (huesped == null || habitacion == null) {
-        JOptionPane.showMessageDialog(null, "Selecciona un huésped y una habitación válidos.");
-        return;
-    }
-
-    String fechaInicioStr = JOptionPane.showInputDialog(null, "Ingresa la fecha de inicio de la reserva (YYYY-MM-DD):");
-
-    if (fechaInicioStr == null || fechaInicioStr.isEmpty()) {
-        JOptionPane.showMessageDialog(null, "La fecha de inicio es requerida.");
-        return;
-    }
-
-    LocalDate fechaInicio = LocalDate.parse(fechaInicioStr);
-
-    String fechaFinalStr = JOptionPane.showInputDialog(null, "Ingresa la fecha de final de la reserva (YYYY-MM-DD):");
-
-    if (fechaFinalStr == null || fechaFinalStr.isEmpty()) {
-        JOptionPane.showMessageDialog(null, "La fecha de final es requerida.");
-        return;
-    }
-
-    LocalDate fechaFinal = LocalDate.parse(fechaFinalStr);
-
-    if (fechaFinal.isBefore(fechaInicio)) {
-        JOptionPane.showMessageDialog(null, "La fecha de final debe ser posterior a la fecha de inicio.");
-        return;
-    }
-
-    Reserva reserva = new Reserva();
-    reserva.setIdHuesped(huesped.getId());
-    reserva.setIdHabitacion(habitacion.getId());
-    reserva.setInicio(fechaInicio);
-    reserva.setFin(fechaFinal);
-
-    GuardarReserva(reserva);
-
-    JOptionPane.showMessageDialog(null, "Reserva creada exitosamente.");
-
-
-    
-    }//GEN-LAST:event_jbReservarActionPerformed
-
+/**/
 
     private void jbBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBusquedaActionPerformed
         String dniStr = jtDNI.getText();
@@ -438,7 +385,7 @@ public class ReservaView extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(jtDNI, "No se encontro ningun huesped con ese DNI");
             }
         } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(jtDNI, "Ingresa un DNi valido0");
+            JOptionPane.showMessageDialog(jtDNI, "Ingresa un DNi valido");
         }
     }//GEN-LAST:event_jbBusquedaActionPerformed
 
