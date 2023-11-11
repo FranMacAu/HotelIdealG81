@@ -24,7 +24,7 @@ public class ReservaData {
     }
 
     public void GuardarReserva(Reserva reserva) {
-        String sql = "INSERT INTO reserva (idhuesped, idhabitacion, inicio, fin, apagar, pagado, estado)"
+        String sql = "INSERT INTO reservas (idhuesped, idhabitacion, inicio, fin, apagar, pagado, estado)"
                 + "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
@@ -46,7 +46,7 @@ public class ReservaData {
             }
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla de reserva");
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla de reserva"+ex);
 
         }
 
