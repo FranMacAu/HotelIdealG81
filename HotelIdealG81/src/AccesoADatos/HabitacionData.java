@@ -1,4 +1,4 @@
-package AccesoADatos;
+    package AccesoADatos;
 
 import Entidades.Habitacion;
 import Entidades.TipoHabitacion;

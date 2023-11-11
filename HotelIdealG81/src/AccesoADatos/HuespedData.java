@@ -34,19 +34,16 @@ public class HuespedData {
 
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
-            //System.out.println("Bloque try");
             if (rs.next()) {
                 huesped.setIdHuesped(rs.getInt(1));
                 JOptionPane.showMessageDialog(null, "Huesped guardado");
-                //System.out.println("Bloque if");
             }
             ps.close();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla huesped");
-
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla huesped"+ex);
+            
         }
-        //System.out.println("Ejecutado");    
     }
 
     public void modificarHuesped(Huesped huesped) {
